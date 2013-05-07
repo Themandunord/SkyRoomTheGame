@@ -1,0 +1,450 @@
+<NPCData>
+  <NPC>
+    <ID>001</ID>
+    <dialog>Dis-donc toi, si t'es là pour dormir,
+autant rester chez toi ! Allez, dehors !</dialog>
+  </NPC>
+  <NPC>
+    <ID>002</ID>
+    <dialog>Sors de cette classe name ! </dialog>
+  </NPC>
+  <NPC>
+    <ID>003</ID>
+    <dialog>Hey, toi là ! Viens ici !</dialog>
+  </NPC>
+  <NPC>
+    <ID>004</ID>
+    <dialog>Tu as l'air perdu ! C'est dangereux par ici !
+Surtout, n'attaque pas d'ennemi si tu n'as pas d'arme !</dialog>
+  </NPC>
+  <NPC>
+    <ID>005</ID>
+    <dialog>Hey ! T'es perdue toi aussi ?! Moi j'étais tranquillement
+dans ma maison quand les dieux ont décidé de m'envoyer 
+ici pour me tester ! Suis-moi, je crois savoir par où passer. 
+Je vais leur montrer de quel bois je me chauffe ! 
+THIS IS SPARTA !!!! (Appuie sur J) </dialog>
+  </NPC>
+  <NPC>
+    <ID>101</ID>
+    <dialog>Appuyez sur J pour me prendre avec vous !</dialog>
+  </NPC>
+  <NPC>
+    <ID>103</ID>
+    <dialog>Prendras-tu le risque de passer par là ?
+Attention à ne pas tomber...</dialog>
+  </NPC>
+  <NPC>
+    <ID>104</ID>
+    <dialog>Ouf ! Un peu plus et tu tombais...</dialog>
+  </NPC>
+  <NPC>
+    <ID>106</ID>
+    <dialog>Attention : sol glissant.</dialog>
+  </NPC>
+  <NPC>
+    <ID>107</ID>
+    <dialog>La vue peut être trompeuse... Seul le toucher te sera utile ici.
+Quoique...</dialog>
+  </NPC>
+  <NPC>
+    <ID>108</ID>
+    <dialog>On ne peut vraiment avancer qu'en se heurtant à des obstacles !
+A prendre au sens littéral comme au figuré.
+Spéciale dédicace à Koga !</dialog>
+  </NPC>
+  <NPC/>
+  <NPC>
+    <ID>109</ID>
+    <dialog>Il suffisait d'aller tout droit ! Mais as-tu trouvé les trois
+trésors ? Ils peuvent t'être utiles pour la suite. Tu te
+demandes peut-être ce qu'il t'arrive en ce moment ?... Toutes
+les réponses sont dans la Skyroom. 
+Avance, et prie pour y arriver le plus vite possible.</dialog>
+  </NPC>
+  <NPC>
+    <ID>110</ID>
+    <dialog>Et oui ! C'est un labyrinthe, pas de chance !</dialog>
+  </NPC>
+  <NPC>
+    <ID>111</ID>
+    <dialog>Un sentiment de déjà-vu ?</dialog>
+  </NPC>
+  <NPC>
+    <ID>112</ID>
+    <dialog>Perdu ? Vous avez une chance sur trois de vous en sortir.</dialog>
+  </NPC>
+   <NPC>
+    <ID>113</ID>
+    <dialog>Il y a un coffre dans le coin...</dialog> 
+  </NPC>
+  <NPC>
+	<ID>201</ID>
+		<dialog>Ah, c'est super le futur ! Tout est automatisé !</dialog>
+  </NPC>
+  <NPC>
+	<ID>202</ID>
+    <dialog>De nos jours, les robots font tout. Dommage qu'ils ne soient
+pas waterproof...
+	</dialog>
+  </NPC>
+  <NPC>
+	<ID>203</ID>
+    <dialog>Les robots, c'est cool ! Sauf quand ils sont méchants.</dialog>
+  </NPC>
+  <NPC>
+	<ID>204</ID>
+    <dialog>Ah ! Il y a un mec qui se balade en slip ! Il est passé
+par là ! Attention, il a l'air violent !
+	</dialog>
+  </NPC>
+  <NPC>
+  <ID>205</ID>
+    <dialog>Nyan ! Salut ma jolie ! *clin d'oeil*</dialog>
+  </NPC>
+  <NPC>
+  <ID>206</ID>
+    <dialog>Le maire a mis des fauteuils partout !
+C'est super quand on est fatigué.</dialog>
+</NPC>
+ <NPC>
+  <ID>207</ID>
+    <dialog>Tu as soif ? Prends ça.</dialog>
+</NPC>
+<NPC>
+  <ID>208</ID>
+    <dialog>A l'aide !! Tue ces robots !!</dialog>
+</NPC>
+<NPC>
+  <ID>209</ID>
+    <dialog>Merci beaucoup de m'avoir sauvé. Je t'aurais bien autorisée
+à visiter la salle où l'on crée les robots mais ils sont devenus
+incontrolables !! En plus c'est pas comme si tu étais à l'aise
+pour les détruire... Haha !! Je vais pas prendre ce risque,
+morveuse !! Allez, du vent !</dialog>
+</NPC>
+<NPC>
+  <ID>210</ID>
+    <dialog>... C'était qui ce gars ?</dialog>
+</NPC>
+<NPC>
+  <ID>211</ID>
+    <dialog>Il y a beaucoup d'écrans et d'ordinateurs dans les rues. Mais
+ils ne fonctionnent pas, c'est juste pour faire joli. :)</dialog>
+</NPC>
+<NPC>
+  <ID>212</ID>
+    <dialog>Plus vite Marty ! Si nous restons plus longtemps, nous 
+risquons d'altérer le continuum espace-temps !</dialog>
+</NPC>
+<NPC>
+  <ID>213</ID>
+    <dialog>Oh là là Doc, c'est pas le pied !</dialog>
+</NPC>
+<NPC>
+  <ID>214</ID>
+    <dialog>Zut, j'ai perdu mon pistolet à eau ! Il vaut mieux en avoir
+toujours un sur soi pour se défendre des machines !</dialog>
+</NPC>
+<NPC>
+  <ID>215</ID>
+    <dialog>Heureusement que cette barrière nous protège de la nouvelle
+zone de quarantaine ! C'est là que sont fabriqués les robots,
+mais c'est un endroit dangereux depuis qu'ils sont devenus
+incontrôlables.</dialog>
+</NPC>
+<NPC>
+  <ID>216</ID>
+    <dialog>Tu vois le mec habillé en bleu ? Il y a un interrupteur
+derrière lui. Je me demande à quoi il peut bien servir...</dialog>
+</NPC>
+  <NPC>
+    <ID>301</ID>
+    <dialog>^ : Ensisa
+&lt; : Bibliothèque Universitaire
+v : Enscmu
+&gt; : Resto U</dialog>
+  </NPC>
+  <NPC>
+    <ID>302</ID>
+    <dialog>C'est q-q-quoi ce b-b-bazar ?!</dialog>
+  </NPC>
+  <NPC>
+    <ID>303</ID>
+    <dialog>Salut name ! Content de te voir en vie ! Mais t'étais où ?
+... Bon, tu veux sûrement savoir ce qui se passe, non ?
+Figure-toi qu'en plein examen, on s'est fait attaquer par des
+zombies ! Un vrai carnage ! Tu as dû en croiser quelques-uns,
+non ? Si t'es blessée, vas voir Joy. Elle est juste là.</dialog>
+  </NPC>
+  <NPC>
+    <ID>304</ID>
+    <dialog>Contente de te voir name ! Tu as l'air fatigué ! Tiens,
+bois ça... En cas de soucis, reviens me voir.</dialog>
+  </NPC>
+  <NPC>
+    <ID>305</ID>
+    <dialog>J'espère que tout le monde a pu s'en sortir... J'irais bien
+vérifier dans les autres bâtiments, mais j'ai trop peur des 
+zombies... En plus, je n'ai rien pour me défendre. Mais j'y 
+pense, il y a des armes de collection à la bibliothèque.
+Tu devrais y faire un tour, mais sois prudente...</dialog>
+  </NPC>
+  <NPC>
+    <ID>306</ID>
+    <dialog>Y a un type louche là-bas. Il a un casque doré et il est
+presque à poil... J'ai peur !</dialog>
+  </NPC>
+  <NPC>
+    <ID>307</ID>
+    <dialog>Encore toi ! Il semblerait que nos destins soient liés.
+Tiens, prends cette épée ! Elle était inefficace face aux 
+monstres de fer, mais dans ce drôle d'univers, elle devrait
+faire l'affaire ! Ces monstres qui reviennent des Enfers... 
+C'est à nous, Guerriers, de les y renvoyer ! Ah-Hou ! Ah-Hou !</dialog>
+  </NPC>
+  <NPC>
+    <ID>308</ID>
+    <dialog>Wahou ! Quelle belle épée ! Bon, on ne va pas rester ici
+éternellement ! On a essayé d'appeler du secours, mais tous
+nos portables sont hors d'usage ! On pourrait bien s'échapper
+en prenant le tram... Tu pourrais aller chercher les autres ?
+Faudrait vérifier à la Bibliothèque et à Werner.
+  </dialog>
+  </NPC>
+  <NPC>
+    <ID>309</ID>
+    <dialog>Le mec bizarre est parti en courant... Quoi ?! Tout le
+monde est au RU ? Merci de me prévenir name.
+A bientôt, j'espère.</dialog>
+  </NPC>
+  <NPC>
+    <ID>310</ID>
+    <dialog>Salut name ! C'est fou ce qu'il se passe, hein ?... 
+Ah ok, donc tout le monde est au RU. Je m'y rends de ce pas !</dialog>
+  </NPC>
+  <NPC>
+    <ID>311</ID>
+    <dialog>Cool, merci name ! Mais il n'y avait personne
+à l'ENSCMu ?... Mince, c'est ma faute ! J'aurais dû te dire 
+d'y aller ! Tu peux leur dire de venir ici ?... Par contre,
+comme tu sembles pouvoir te débrouiller seule, on t'attendra
+pas éternellement !
+	</dialog>
+  </NPC>
+ 
+  <NPC>
+    <ID>312</ID>
+    <dialog>Des zombies pourraient entrer ici
+d'une seconde à l'autre, et on n'a pas d'épée nous ! 
+Reviens-vite ma vieille ! Au pire, on partira sans toi, 
+mais tu resteras toujours dans nos coeurs...</dialog>
+  </NPC>
+  <NPC>
+    <ID>313</ID>
+    <dialog>Hey name ! ... D'accord, tout le monde est au Resto U. 
+A+ ma poule ! </dialog>
+  </NPC>
+  <NPC>
+    <ID>314</ID>
+    <dialog>Hein ?! T'es qui toi ?! Qu'est-ce que tu me veux, sale 
+geek ?... Désolée, je suis un peu à cran ces derniers
+temps... Y a des drôles de gens dehors, et ils sont 
+dingues ! Il y en a même un qui m'a mordue ! Je me sens
+pas très bien... S'il te plait, aide-moi !</dialog>
+  </NPC>
+  <NPC>
+    <ID>315</ID>
+    <dialog>Tu m'as dit que les autres étaient au RU ? C'est trop risqué 
+de passer par l'extérieur dans mon état. Il existe un tunnel
+souterrain pour s'y rendre. Suis-moi.</dialog>
+  </NPC>
+  <NPC>
+    <ID>316</ID>
+    <dialog>Ah, heureusement que quelqu'un avait prévu le coup ! Cette
+mixture m'a redonné toute mon énergie ! Au fait, tu t'appelles
+name ? Quelqu'un a laissé une lettre pour toi.</dialog>
+  </NPC>
+  <NPC>
+    <ID>317</ID>
+    <dialog>Bon, on va prendre le tram ? J'espère qu'ils nous ont 
+attendus...</dialog>
+  </NPC>
+  <NPC>
+    <ID>401</ID>
+    <dialog>Argghhh ! J'ai soif ! Ramène moi de l'eau !</dialog>
+  </NPC>
+  <NPC>
+    <ID>402</ID>
+    <dialog>Merci pour l'eau ! Ah, je me présente, je suis le jardinier 
+de cette demeure. J'ai un dernier service à te demander :
+peux-tu aller chercher les 3 champignons qui se trouvent dans 
+le jardin ? J'en ai besoin pour me faire une petite soupe.</dialog>
+  </NPC>
+  <NPC>
+    <ID>403</ID>
+    <dialog>Merci pour ces champignons ! J'ai déraciné les souches 
+d'arbres plus haut, vas voir la fontaine !</dialog>
+  </NPC>
+  <NPC>
+    <ID>405</ID>
+    <dialog>Je suis à la recherche du bonheur :)</dialog>
+  </NPC>
+  <NPC>
+    <ID>406</ID>
+    <dialog>Biijour, je m'appelle Jean-Pat !
+Donne cette lettre à Bernadette (elle est très chouette) !</dialog>
+  </NPC>
+  <NPC>
+  <ID>407</ID>
+    <dialog>Oh merci pour cette lettre !
+Mais ?! Pourquoi est-ce qu'elle pue autant ?</dialog>
+  </NPC>
+  <NPC>
+  <ID>408</ID>
+    <dialog>Ne vas pas par là ! Je prends mon souffle et je vais tout
+nettoyer !</dialog>
+  </NPC>
+  <NPC>
+    <ID>501</ID>
+    <dialog>
+Veuillez ne pas emprunter la combinaison de vos collègues
+Stormtrooper quand ils sont aux toilettes.
+                  ---- La Direction ----                  </dialog>
+  </NPC>
+  <NPC>
+  <ID>502</ID>
+    <dialog>Salle de Commande n°1</dialog>
+  </NPC>
+  <NPC>
+  <ID>503</ID>
+    <dialog>^: Hangar </dialog>
+  </NPC>
+  <NPC>
+  <ID>504</ID>
+    <dialog>^: Salle de Commande n°2</dialog>
+  </NPC>
+    <NPC>
+  <ID>601</ID>
+    <dialog>Attention à toi ! Dans ce dojo se déroule une 
+terrible guerre civile ! Tiens prends ce baton.
+Il te seras fort utile.</dialog>
+  </NPC>
+  <NPC>
+  <ID>701</ID>
+    <dialog>Beuh !</dialog>
+  </NPC>
+  <NPC>
+  <ID>702</ID>
+    <dialog>Merci à toi d'avoir permis à mon fidèle soldat de revenir 
+parmi les siens ! Les dieux sauront te récompenser pour tous
+ces efforts. Je dois maintenant annoncer le retour de notre
+camarade et te présenter en tant que héros. Tiens toi donc à
+mes côtés pendant mon discours.</dialog>
+  </NPC>
+  <NPC>
+  <ID>801</ID>
+    <dialog>Hey ! Regarde cette pierre tombale. C'est écrit en un vieux 
+dialecte, mais je peux le traduire.</dialog>
+  </NPC>
+  <NPC>
+  <ID>802</ID>
+    <dialog>
+"Héroïne aux yeux bleus, élue des concepteurs,
+Tu fouleras ce lieu pour prouver ta valeur.
+Il te faudra trouver un ancien artéfact
+Qui te sera livré lors d'une ultime attaque.
+</dialog>
+  </NPC>
+  <NPC>
+  <ID>803</ID>
+    <dialog>Cette épreuve testera Force et Persévérance ;
+SkyRoom tu atteindras, si tu as de la chance..."</dialog>
+  </NPC>
+  <NPC>
+  <ID>804</ID>
+    <dialog>Le saviez-vous ? Le bouzkachi est un jeu qui se joue avec le
+corps décapité d'une chèvre morte.</dialog>
+  </NPC>
+  <NPC>
+  <ID>805</ID>
+    <dialog>Les anges de lumière ne sont rien sans ceux des ténèbres...</dialog>
+  </NPC>
+  <NPC>
+  <ID>806</ID>
+    <dialog>Plus un ennemi est puissant, plus son butin sera grand.</dialog>
+  </NPC>
+  <NPC>
+  <ID>807</ID>
+    <dialog>Plus rapide que l'éclair, l'ange des ténèbres frappera de sa
+foudre.</dialog>
+  </NPC>
+  <NPC>
+  <ID>808</ID>
+    <dialog>Ci-gît Link, qui fit l'erreur d'attaquer une poule...</dialog>
+  </NPC>
+  <NPC>
+  <ID>809</ID>
+    <dialog>Ci-gît Mario, qui fit l'erreur de manger tous ces champignons
+bizarres...</dialog>
+  </NPC>
+  <NPC>
+  <ID>810</ID>
+    <dialog>Ci-gît Sacha, qui fit l'erreur de prendre un bain avec son
+pikachu...</dialog>
+  </NPC>
+  <NPC>
+  <ID>811</ID>
+    <dialog>Ci-gît Guertrude. On l'aimait bien, cette bourrin.</dialog>
+  </NPC>
+  <NPC>
+  <ID>812</ID>
+    <dialog>Les paroles s'envolent, les écrits restent.</dialog>
+  </NPC>
+  <NPC>
+  <ID>813</ID>
+    <dialog>Le plus fort entre l'hippopotame et l'éléphant, c'est encore
+le rhinocéros.</dialog>
+  </NPC>
+  <NPC>
+  <ID>814</ID>
+    <dialog>Le saviez-vous ? Si tous les lions meurent, c'est le Ouistiti
+qui sera le roi des animaux.</dialog>
+  </NPC>
+  <NPC>
+  <ID>815</ID>
+    <dialog>Allez, courage ! Tu as bientôt fini le jeu :)</dialog>
+  </NPC>
+  <NPC>
+  <ID>816</ID>
+    <dialog>Ah, il y a un orifice dans cette porte. Il faut sûrement y
+enfoncer quelque chose. Peut-être l'objet dont parlent les 
+écrits...</dialog>
+  </NPC>
+  <NPC>
+  <ID>817</ID>
+    <dialog>Ca y est, tu as trouvé l'objet mystique ! Insère le dans la
+serrure de la porte !</dialog>
+  </NPC>
+  <NPC>
+  <ID>1000</ID>
+    <dialog>Rémy : Féliciation !</dialog>
+  </NPC>
+  <NPC>
+  <ID>1001</ID>
+    <dialog>Alex : Féliciation !</dialog>
+  </NPC>
+  <NPC>
+  <ID>1002</ID>
+    <dialog>Loic : Féliciation !</dialog>
+  </NPC>
+  <NPC>
+  <ID>1003</ID>
+    <dialog>Amael : Féliciation !</dialog>
+  </NPC>
+  <NPC>
+  <ID>1004</ID>
+    <dialog>Stan : Féliciation !</dialog>
+  </NPC>
+  
+  </NPCData>

@@ -1,0 +1,12 @@
+Haut => 2
+Bas => 3
+Gauche => 0
+Droite => 1
+A => 4
+B => 5
+X => 6
+Y => 7
+Select => 10
+Start => 11
+RB => 9
+LB => 8
