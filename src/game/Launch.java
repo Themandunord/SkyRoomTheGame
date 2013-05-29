@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.swing.JOptionPane;
+
 import org.lwjgl.Sys;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
@@ -69,6 +71,7 @@ public class Launch extends StateBasedGame{
 	
 	public static final int keyboard = 8;
 	public static final int joystick = 9;
+	public static final int difficultySelector = 10;
 	
 	/*public static final int selector1 =8;
 	public static final int selector2 =9;
@@ -111,6 +114,7 @@ public class Launch extends StateBasedGame{
 		this.addState(new CharacterSelector(selector));
 		this.addState(new KeyboardControl(keyboard));
 		this.addState(new JoystickControl(joystick));
+		this.addState(new DifficultySelector(difficultySelector));
 		this.addState(new Movement(100));
 		/*addState(new MenuPacman(selector1));
 		addState(new GamePacman(selector2));
@@ -128,7 +132,7 @@ public class Launch extends StateBasedGame{
 		GamePlayState state = new GamePlayState(30);
 		state.setLevelFile("data/level1.lvl");
 		addState(state);
-		addState(new LevelSelector(32));
+	    addState(new LevelSelector(32));
 	
 		//this.enterState(31);
 	}
@@ -143,20 +147,28 @@ public class Launch extends StateBasedGame{
 	 * @throws NullPointerException 
 	 */
 	public static void main(String[] args) throws SlickException, NullPointerException, IllegalStateException, IOException{
-		try { Thread.sleep(1800); } catch (Exception e) {}
-		if(SplashScreen.getSplashScreen()!=null)
-			SplashScreen.getSplashScreen().close();
+		//try { Thread.sleep(500); } catch (Exception e) {}
+		/*if(SplashScreen.getSplashScreen()!=null)
+			SplashScreen.getSplashScreen().close();*/
 		container = new AppGameContainer(new Launch());
-		container.setDisplayMode(800, 600, false); // True si plein ecran
+		int option = JOptionPane.showConfirmDialog(null, "Plein écran ?");
+	    if (option == 0)
+	      container.setDisplayMode(800, 600, true);
+	    else if (option == 1)
+	      container.setDisplayMode(800, 600, false);
+	    else {
+	      System.exit(0);
+	    }
+		//container.setDisplayMode(800, 600, false); // True si plein ecran
 		container.setTargetFrameRate(40); // Défini le n	ombre de FPS
 		container.setIcons(refs);
 		container.setShowFPS(false);
-		Sys.alert("SkyRoom", "L'équipe de développement de SkyRoom vous souhaite un bon jeu :)" +
+		/*Sys.alert("SkyRoom", "L'équipe de développement de SkyRoom vous souhaite un bon jeu :)" +
 				"\n\t\t-Lespagnol Rémy" +
 				"\n\t\t-Guicharrousse Alexandre" +
 				"\n\t\t-Duchet Loïc" +
 				"\n\t\t-Botton Amaël" +	
-				"\n\t\t-Merten Stanislas");
+				"\n\t\t-Merten Stanislas");*/
 		container.start();   // Lance l'app
 	}
 }

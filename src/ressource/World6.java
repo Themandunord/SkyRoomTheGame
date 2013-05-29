@@ -113,6 +113,7 @@ public class World6 implements WorldRessource
 		else if(Map.isMap(11, 1)){
 			Event.costume_partiel = false;
 			Event.costume = false;
+			Event.blasterStorm = false;
 		}
 		else if(Map.isMap(10, 1)){
 			Event.spartanSpace = true;

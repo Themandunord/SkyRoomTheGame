@@ -34,7 +34,7 @@ public class BossChinois extends Monster {
 	 * la ligne et l'ellipse
 	 */
 	public BossChinois() {
-		super(0.06f, 140);
+		super(0.06f, 1500);
 		listTornado= new ArrayList<Tornado>();
 	}
 

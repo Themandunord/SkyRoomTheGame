@@ -83,7 +83,7 @@ public class Hud {
 		
 		
 		if(Event.bikini){
-			bikini.draw(15, 25);
+			bikini.draw(50, 28);
 		}
 		
 		if(nbrHeart<=0){ // Passage au GameOver
@@ -91,8 +91,8 @@ public class Hud {
 			sbg.enterState(3);
 			sbg.enterState(3, new FadeOutTransition (),new BlobbyTransition(Color.black));
 		}
-		rubis.draw(750,5);
-		saphir.draw(750,35);
+		rubis.draw(745,5);
+		saphir.draw(745,35);
 		if(Event.blaster){
 			blaster.draw(745, 70);
 			g.drawString(""+Blaster.getAmmo(), 780, 75);
@@ -107,8 +107,8 @@ public class Hud {
 			bo.draw(750,68);
 		}
 		
-		g.drawString(""+Item.getNB_Rubis(), 780, 10);
-		g.drawString(""+Item.getNB_Saphir(), 780, 40);
+		g.drawString(""+Item.getNB_Rubis(), 775, 10);
+		g.drawString(""+Item.getNB_Saphir(), 775, 40);
 		
 
 	}

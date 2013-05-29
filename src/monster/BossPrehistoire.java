@@ -20,6 +20,7 @@ import event.Event;
 
 public class BossPrehistoire extends Monster{
 
+	private boolean start;
 	public BossPrehistoire() {
 		super(0.12f, 100);
 	}
@@ -31,14 +32,19 @@ public class BossPrehistoire extends Monster{
 		xM = 416;
 		yM = 96;
 		currentMonsterAnim.stop();
-		Event.cinematic = true;
+		Event.notMove = true;
 	}
 	
 	public void update(GameContainer gc, int delta) throws SlickException{
 		super.update(gc, delta);
 		if(Math.sqrt(Math.pow(xM-Player.getX(),2)+Math.pow(yM - Player.getY(),2)) < 200){
-			Event.cinematic = false;
+			Event.notMove = false;
 			currentMonsterAnim.start();
+			start = true;
+		}
+		else{
+			if(!start)
+				Event.notMove = true;
 		}
 		if(alive){
 			rectMonster.setBounds(xM+5,yM+2,50,54);

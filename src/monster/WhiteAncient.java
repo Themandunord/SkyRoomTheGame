@@ -32,7 +32,7 @@ public class WhiteAncient extends Monster {
 	private boolean isRender,increaseNB;
 	
 	public WhiteAncient() {
-		super(0.05f,30);
+		super(0.05f,250);
 	}
 	
 	public void init() throws SlickException{

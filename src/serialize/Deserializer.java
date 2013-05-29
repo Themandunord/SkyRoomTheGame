@@ -8,9 +8,12 @@ import java.io.IOException;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
+import event.Event;
+
 public class Deserializer {
 	
 public static SaveData saveData;
+private FileInputStream fis;
 	
 // Permet de lire le XML de sauvegarde	
 
@@ -20,15 +23,20 @@ public void DeSerializere(){
 			
             XStream xstream = new XStream(new DomDriver());
             
-            FileInputStream fis = new FileInputStream(new File(userHome+"/.Skyroom/Save.save"));
+            File file = new File(userHome+"/.Skyroom/Save.save");
+            
+            if(file.exists())
+            	fis = new FileInputStream(file);
+            else Event.haveNoSave = true;
             
             try {
-               
-            saveData = (SaveData) xstream.fromXML(fis);
+            if(fis != null)  
+            	saveData = (SaveData) xstream.fromXML(fis);
            
            } finally {
                
-                fis.close();
+                if(fis!=null)
+                	fis.close();
             }
             
         } catch (FileNotFoundException e) {

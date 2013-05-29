@@ -8,6 +8,8 @@ import java.io.IOException;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
+import event.Event;
+
 /*
  * Sauvegarde dans un XML
  */
@@ -36,6 +38,7 @@ public class Serializer {
 			FileOutputStream fos = new FileOutputStream(fichier);
 			try {
 				xstream.toXML(save, fos);
+				Event.haveNoSave = false;
 				} finally {
 				fos.close();
 				}

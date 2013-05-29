@@ -23,7 +23,7 @@ Surtout, n'attaque pas d'ennemi si tu n'as pas d'arme !</dialog>
 dans ma maison quand les dieux ont décidé de m'envoyer 
 ici pour me tester ! Suis-moi, je crois savoir par où passer. 
 Je vais leur montrer de quel bois je me chauffe ! 
-THIS IS SPARTA !!!! (Appuie sur J) </dialog>
+THIS IS SPARTA !!!! (Appuie sur Alt) </dialog>
   </NPC>
   <NPC>
     <ID>101</ID>
@@ -118,9 +118,8 @@ C'est super quand on est fatigué.</dialog>
 <NPC>
   <ID>209</ID>
     <dialog>Merci beaucoup de m'avoir sauvé. Je t'aurais bien autorisée
-à visiter la salle où l'on crée les robots mais ils sont devenus
-incontrolables !! En plus c'est pas comme si tu étais à l'aise
-pour les détruire... Haha !! Je vais pas prendre ce risque,
+à visiter la salle où l'on crée les robots mais ils sont 
+devenus incontrolables ! Je vais pas prendre ce risque,
 morveuse !! Allez, du vent !</dialog>
 </NPC>
 <NPC>
@@ -292,18 +291,37 @@ d'arbres plus haut, vas voir la fontaine !</dialog>
   </NPC>
   <NPC>
     <ID>406</ID>
-    <dialog>Biijour, je m'appelle Jean-Pat !
-Donne cette lettre à Bernadette (elle est très chouette) !</dialog>
+    <dialog>Salut à toi l'amie ! Tu connais Elisabeth ? Elle est si
+belle ! Mais je suis trop timide pour aller lui parler...
+Tu pourrais lui apporter cette lettre s'il te plaît ?</dialog>
   </NPC>
   <NPC>
   <ID>407</ID>
-    <dialog>Oh merci pour cette lettre !
-Mais ?! Pourquoi est-ce qu'elle pue autant ?</dialog>
+    <dialog>Oh merci pour cette lettre ! Au fait, je crois que les
+deux gardes veulent te parler.</dialog>
   </NPC>
   <NPC>
   <ID>408</ID>
-    <dialog>Ne vas pas par là ! Je prends mon souffle et je vais tout
-nettoyer !</dialog>
+    <dialog>Salut ! J'ai entendu dire qu'il y avait un souterrain
+avec des monstres ! Bastooon ! Euh...je veux dire... 
+SpartaaaaAaa !</dialog>
+  </NPC>
+  <NPC>
+  <ID>420</ID>
+    <dialog>Tant que tu ne seras pas populaire, tu ne passeras pas!</dialog>
+  </NPC>
+  <NPC>
+  <ID>421</ID>
+    <dialog>Merci pour ton aide, tu peux y aller !</dialog>
+  </NPC>
+  <NPC>
+  <ID>430</ID>
+    <dialog>Oh Oh Oh ! Te voilà ! Viens me voir.</dialog>
+  </NPC>
+  <NPC>
+  <ID>431</ID>
+    <dialog>Tu es célèbre dans tous le royaume maintenant ! Vas te
+servir à manger pour reprendre des forces.</dialog>
   </NPC>
   <NPC>
     <ID>501</ID>
@@ -324,22 +342,25 @@ Stormtrooper quand ils sont aux toilettes.
   <ID>504</ID>
     <dialog>^: Salle de Commande n°2</dialog>
   </NPC>
-    <NPC>
-  <ID>601</ID>
-    <dialog>Attention à toi ! Dans ce dojo se déroule une 
-terrible guerre civile ! Tiens prends ce baton.
-Il te seras fort utile.</dialog>
+  <NPC>
+      <ID>601</ID>
+    <dialog>C'est n'importe quoi ! Le Daimyo s'est fait avoir par
+un samourai à moitié nu, et maintenant c'est la guerre 
+dans toute la maison pour savoir qui prendra sa place.
+Prends ce Bô pour te défendre.</dialog>
   </NPC>
   <NPC>
   <ID>701</ID>
-    <dialog>Beuh !</dialog>
+    <dialog>Ah ! Ca fait du bien de rentrer à la maison ! Parle
+à notre chef, Leonidas. Il saura récompenser ta bravoure.
+THIS IS SPARTA !</dialog>
   </NPC>
   <NPC>
   <ID>702</ID>
     <dialog>Merci à toi d'avoir permis à mon fidèle soldat de revenir 
 parmi les siens ! Les dieux sauront te récompenser pour tous
 ces efforts. Je dois maintenant annoncer le retour de notre
-camarade et te présenter en tant que héros. Tiens toi donc à
+camarade et te présenter en tant qu'héroïne. Tiens toi donc à
 mes côtés pendant mon discours.</dialog>
   </NPC>
   <NPC>
@@ -372,7 +393,9 @@ corps décapité d'une chèvre morte.</dialog>
   </NPC>
   <NPC>
   <ID>806</ID>
-    <dialog>Plus un ennemi est puissant, plus son butin sera grand.</dialog>
+    <dialog>Le saviez-vous ? Se prendre un caillou dans la tête, ça fait
+mal. Mais se prendre un caillou enflammé entre les deux yeux,
+ça, ça vous bousille la journée !</dialog>
   </NPC>
   <NPC>
   <ID>807</ID>
@@ -399,7 +422,8 @@ pikachu...</dialog>
   </NPC>
   <NPC>
   <ID>812</ID>
-    <dialog>Les paroles s'envolent, les écrits restent.</dialog>
+    <dialog>Les paroles s'envolent, les écrits restent. Surtout quand
+C'est gravé sur du marbre...</dialog>
   </NPC>
   <NPC>
   <ID>813</ID>
@@ -409,7 +433,7 @@ le rhinocéros.</dialog>
   <NPC>
   <ID>814</ID>
     <dialog>Le saviez-vous ? Si tous les lions meurent, c'est le Ouistiti
-qui sera le roi des animaux.</dialog>
+qui deviendra le roi des animaux.</dialog>
   </NPC>
   <NPC>
   <ID>815</ID>
@@ -432,7 +456,9 @@ serrure de la porte !</dialog>
   </NPC>
   <NPC>
   <ID>1001</ID>
-    <dialog>Alex : Féliciation !</dialog>
+    <dialog>Alex :
+Voilà, c'est la fin ! Allons, ne pleure pas, on aura passé
+un bon moment ;)</dialog>
   </NPC>
   <NPC>
   <ID>1002</ID>

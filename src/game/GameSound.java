@@ -21,7 +21,7 @@ import event.Event;
 public class GameSound {
 
 	/** Musique des différents mondes */
-	private static Music menuTheme,monde1Theme,startTheme,MJ,uhaTheme,transition,skyroom,renaissance2,futur,bonus,spartaland,espace,futur1,espace2;
+	private static Music menuTheme,chinois1,chinois2,renaissance1,world1Theme,startTheme,MJ,uhaTheme,transition,skyroom,renaissance2,futur,bonus,spartaland,espace,futur1,espace2;
 	/** Musique courrante */
 	private static Music current_music;
 	/** Volume du jeu */
@@ -44,7 +44,7 @@ public class GameSound {
 	
 		tree = new TreeMap<Integer,Music>();
 		menuTheme = new Music("res/music/menuTheme.ogg",true);
-		monde1Theme = new Music("res/music/monde1Theme.ogg",true);
+		world1Theme = new Music("res/music/monde1Theme.ogg",true);
 		startTheme = new Music("res/music/StartTheme.ogg",true);
 		MJ = new Music("res/music/MJ.ogg",true);
 		uhaTheme = new Music("res/music/uhaTheme.ogg",true);
@@ -57,11 +57,14 @@ public class GameSound {
 		espace = new Music("res/music/espace.OGG",true);
 		futur1 = new Music("res/music/futur1.ogg",true);
 		espace2 = new Music("res/music/espace2.ogg",true);
+		chinois1 = new Music("res/music/chinois1.ogg",true);
+		chinois2 = new Music("res/music/chinois2.ogg",true);
+		renaissance1 = new Music("res/music/renaissance1.ogg",true);
 		current_music = menuTheme;
 		music = 0;
 		
 		tree.put(1,startTheme);
-		tree.put(2,monde1Theme);
+		tree.put(2,world1Theme);
 		tree.put(3,uhaTheme);
 		tree.put(4,transition);
 		tree.put(5,skyroom);
@@ -72,6 +75,9 @@ public class GameSound {
 		tree.put(10, espace);
 		tree.put(11, futur);
 		tree.put(12, espace2);
+		tree.put(13, chinois1);
+		tree.put(14, chinois2);
+		tree.put(15, renaissance1);
 	}
 	
 	/**
@@ -80,7 +86,7 @@ public class GameSound {
 	 */
 	public static void updateMusic(){		
 		if(whereMusic(0, 0)){ isPlaying(startTheme); music = 1; }
-		else if(whereMusic(0,1)) { isPlaying(monde1Theme); music = 2; }
+		else if(whereMusic(0,1)) { isPlaying(world1Theme); music = 2; }
 		else if(whereMusic(7,7)){
 			if(!MJ.playing() && compteur==0){
 				MJ.stop();
@@ -98,7 +104,11 @@ public class GameSound {
 		else if(whereMusic(8, 8)){ isPlaying(spartaland); music = 9;}
 		else if(whereMusic(6, 0)){ isPlaying(espace); music = 10;}
 		else if(whereMusic(1, 10)){ isPlaying(futur); music = 11;}
-		else if(whereMusic(8, 1)){ isPlaying(espace2); music = 12;}
+		else if(whereMusic(6, 3)){ isPlaying(espace2); music = 12;}
+		else if(whereMusic(11, 1)){ isPlaying(chinois1); music = 13;}
+		else if(whereMusic(11, 2)){ isPlaying(chinois2); music = 14;}
+		else if(whereMusic(8, 5)){ isPlaying(renaissance1); music = 15;}
+		else if(whereMusic(9, 6)){ isPlaying(renaissance1); music = 15;}
 		
 		
 	}

@@ -19,6 +19,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import player.Dove;
 import player.Player;
 
 import event.Cinematic;
@@ -34,10 +35,13 @@ import monster.BossSpace;
 import monster.BoyZombie;
 import monster.Dino;
 import monster.GirlZombie;
+import monster.Liche;
 import monster.MJ;
+import monster.Monster;
 import monster.RedAncient;
 import monster.Robot;
 import monster.Samurais;
+import monster.Skeleton;
 import monster.SpaceInvader;
 import monster.Stormtrooper;
 import monster.WhiteAncient;
@@ -111,9 +115,24 @@ public class Resource {
 	/** Compteur pour la cinématique de spartaland */
 	private int cpt_spartaland;
 	/** Arcade Snake */
-	private Arcade snake,tetris,spaceInvader;
-	private int cptGoSkyRoom,cptDialogSkyRoom,cptSkyRoom;
+	private Arcade snake,tetris,spaceInvader,pong,blockout;
+	private int cptGoSkyRoom,cptDialogSkyRoom,cptSkyRoom,cptDialogSkyroom2;
 	private Image dialbox;
+	private Cinematic cine_chinois;
+	/** Tableau des noms des images de la cinématique du futur */
+	private String[] name_chinois = {"chinois1","chinois2","chinois3","chinois4","chinois5"};
+	/** Tableau des noms des images de la cinématique du futur pour la fille */
+	private String[] name_chinois_girl = {"chinoisGirl1","chinoisGirl2","chinoisGirl3","chinoisGirl4","chinoisGirl5","chinoisGirl7","chinoisGirl7","chinoisGirl8"};
+	private Cinematic cine_skyroom;
+	/** Tableau des noms des images de la cinématique du futur */
+	private String[] name_skyroom = {"PorteBoy1","PorteBoy2","PorteBoy3","PorteBoy4","PorteBoy5","PorteBoy6","PorteBoy7","PorteBoy8"};
+	/** Tableau des noms des images de la cinématique du futur pour la fille */
+	private String[] name_skyroom_girl = {"PorteGirl1","PorteGirl2","PorteGirl3","PorteGirl4","PorteGirl5","PorteGirl6","PorteGirl7","PorteGirl8"};
+	private Cinematic cine_renaissance;
+	/** Tableau des noms des images de la cinématique du futur */
+	private String[] name_renaissance = {"RenaissanceBoy1","RenaissanceBoy2","RenaissanceBoy3","RenaissanceBoy4"};
+	/** Tableau des noms des images de la cinématique du futur pour la fille */
+	private String[] name_renaissance_girl = {"RenaissanceGirl1","RenaissanceGirl2","RenaissanceGirl3","RenaissanceGirl4"};
 	
 	
 	/**
@@ -138,10 +157,15 @@ public class Resource {
 		cine_bonus = new Cinematic(name_bonus);
 		cine_futur = new Cinematic(name_futur);
 		cine_spartaland = new Cinematic(name_spartaland);
+		cine_chinois = new Cinematic(name_chinois);
+		cine_skyroom = new Cinematic(name_skyroom);
+		cine_renaissance = new Cinematic(name_renaissance);
 		this.cpt_spartaland = 0;
-		this.snake = new Arcade("snake", 17, 192, 160, 2, 3, "Jouer à Snake ? Appuie sur la touche G.");
-		this.tetris = new Arcade("tetris", 15, 600, 450, 10, 5, "Jouer à Tetris ? Appuie sur la touche G.");
-		this.spaceInvader = new Arcade("spaceInvader", 21, 600, 450, 7, 0, "Jouer à Space Invaders ? Appuie sur la touche G.");
+		this.snake = new Arcade("snake", 17, 192, 160, 2, 3, "Jouer à Snake ?");
+		this.tetris = new Arcade("tetris", 15, 224,32, 10, 5, "Jouer à Tetris ?");
+		this.spaceInvader = new Arcade("spaceInvader", 21,544, 352, 10, 1, "Jouer à Space Invaders ?");
+		this.pong = new Arcade("pong",22,544,96,11,1,"Jouer à Pong ?");
+		this.blockout = new Arcade("block", 31, 320, 224, 11, 6, "Jouer au Casse-Brique ?");
 		try {
 			dialbox = new Image("res/all/dialboxEvent.png");
 		} catch (SlickException e) {
@@ -160,6 +184,9 @@ public class Resource {
 			cine_bonus = new Cinematic(name_bonus_girl);
 			cine_futur = new Cinematic(name_futur_girl);
 			cine_spartaland = new Cinematic(name_spartaland_girl);
+			cine_chinois = new Cinematic(name_chinois_girl);
+			cine_skyroom = new Cinematic(name_skyroom_girl);
+			cine_renaissance = new Cinematic(name_renaissance_girl);
 			Event.girl_cine = true;
 		}
 		try {
@@ -167,7 +194,6 @@ public class Resource {
 		    /*
 		     *Ressources Monster 
 		     */
-			monster.AddMonstere(1, Dino.class, 0, 1);
 		    monster.AddMonstere(2, Dino.class, 0, 2);
 		    monster.AddMonstere(2, Dino.class, 1, 3);
 		    monster.AddMonstere(3, Dino.class, 1, 2);
@@ -179,10 +205,16 @@ public class Resource {
 		    monster.AddMonstere(2, Robot.class, 1, 9);
 		    monster.AddMonstere(2, Robot.class, 1, 8);
 		    monster.AddMonstere(2, GirlZombie.class, 6, 10);
+		    monster.AddMonstere(2, GirlZombie.class, 5, 9);
 		    monster.AddMonstere(2, GirlZombie.class, 6, 9);
 		    monster2.AddMonstere(2, BoyZombie.class, 6, 9);
 		    monster.AddMonstere(2, BoyZombie.class, 6, 8);
+		    monster.AddMonstere(2, GirlZombie.class, 6, 7);
+		    monster.AddMonstere(1, BoyZombie.class, 6, 6);
+		    monster.AddMonstere(1, GirlZombie.class, 6, 5);
 		    monster.AddMonstere(1, MJ.class, 7, 7);
+		    monster.AddMonstere(2, Skeleton.class, 11, 6);
+		    monster.AddMonstere(1, Skeleton.class, 11, 5);
 		    monster.AddMonstere(2, Stormtrooper.class, 8, 0);
 		    monster.AddMonstere(2, Stormtrooper.class, 9, 0);
 		    monster.AddMonstere(2, Stormtrooper.class, 9, 1);
@@ -192,21 +224,31 @@ public class Resource {
 		    monster.AddMonstere(2, SpaceInvader.class, 8, 3);
 		    monster.AddMonstere(3, SpaceInvader.class, 7, 3);
 		    monster.AddMonstere(3, SpaceInvader.class, 7, 2);	
+		    monster.AddMonstere(3, SpaceInvader.class, 7, 1);
+		    monster.AddMonstere(2, SpaceInvader.class, 6, 1);
+		    monster.AddMonstere(1, SpaceInvader.class, 6, 2);
 		    
-		    monster.AddMonstere(3, RedAncient.class,10, 9);
-		    monster.AddMonstere(1, BlackAncient.class,10, 8);
+		    monster.AddMonstere(2, RedAncient.class,10, 9);
+		    monster2.AddMonstere(1, WhiteAncient.class, 10, 9);
+		    monster2.AddMonstere(1, WhiteAncient.class, 10, 8);
+		    monster.AddMonstere(2, BlackAncient.class,10, 8);
 		    monster.AddMonstere(1, WhiteAncient.class,9, 8);
+		    monster.AddMonstere(2, BlackAncient.class,9, 9);
+		    monster2.AddMonstere(2, RedAncient.class, 9, 9);
 		    
 		    monster.AddMonstere(4, Samurais.class, 11, 2);
 		    monster.AddMonstere(6, Samurais.class, 11, 3);
 		    monster.AddMonstere(5, Samurais.class, 10, 2);
 		    monster.AddMonstere(5, Samurais.class, 12, 2);
 		    
+		    monster.AddMonstere(3, Skeleton.class, 12, 7);
+		    
 		    /* BOSS */
 		    monster.AddMonstere(1, BossPrehistoire.class, 3, 2);
 		    monster.AddMonstere(1, BossFutur.class, 2, 8);
 		    monster.AddMonstere(1, BossSpace.class, 6, 3);
 		    monster.AddMonstere(1, BossChinois.class, 11, 4);
+		    monster.AddMonstere(1, Liche.class, 12, 7);
 			}
 		} catch (InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
@@ -330,9 +372,52 @@ public class Resource {
 				}
 			}
 		}
+		if(Map.isMap(12, 7)){
+			for(int i = 0; i<monster.getMonsterList().size(); i++){
+				if(!monster.getMonsterList().get(i).getAlive()){
+					Event.bossRennaissance = true;					
+				}
+			}
+		}
 		
 		if(Event.special_item_bonus>10){
 			Event.specialItemBonus = true;
+		}
+		
+		int nbMonster = 0;
+		if(!Map.isMap(7, 7)){
+			for(int i = 0; i < monster.getNb() ; i++){
+				if(!monster.getMonsterList().get(i).getAlive()){
+					nbMonster++;
+				}
+				
+				if(nbMonster == monster.getNb()){
+					for( Monster ms:monster.getMonsterList()){
+						ms.destroySprite();
+					}
+						
+				}
+			}
+		}
+		
+		int nbMonster2 = 0;
+		for(int i = 0; i < monster2.getNb() ; i++){
+			if(!monster2.getMonsterList().get(i).getAlive()){
+				nbMonster2++;
+			}
+			
+			if(nbMonster2 == monster2.getNb()){
+				for( Monster ms:monster2.getMonsterList()){
+					ms.destroySprite();
+				}
+					
+			}
+		}
+		
+		if(Map.isMap(11, 1)){
+			Event.doveOnPlayer = true;
+			Dove.doveIsOnPlayer = true;
+			Event.blasterStorm = false;
 		}
 	}
 	
@@ -359,6 +444,8 @@ public class Resource {
 		snake.renderUpdating(sbg,gc);
 		tetris.renderUpdating(sbg,gc);
 		spaceInvader.renderUpdating(sbg,gc);
+		blockout.renderUpdating(sbg, gc);
+		pong.renderUpdating(sbg, gc);
 		
 			
 	}
@@ -394,15 +481,26 @@ public class Resource {
 		world5.renderDialog(g);
 		world8.renderDialog(g);
 		world7.renderDialog(g);
-		cine_dark.render(10, 1, 8, 80);
-		cine_prehistoire.render(0, 1, 3, 30);
-		cine_stromtrooper.render(8, 0, 5, 70);
-		cine_bonus.render(10, 10, 14, 40);
-		cine_futur.render(2, 8, 7, 40);
-		if(Event.spartaland_cine){
+		if(!Event.cine_dark)
+			cine_dark.render(10, 1, 8, 80,1);
+		if(!Event.cine_prehistoire)
+			cine_prehistoire.render(0, 1, 3, 30,2);
+		if(!Event.cine_stormtrooper)
+			cine_stromtrooper.render(8, 0, 5, 70,3);
+		if(!Event.cine_bonus)
+			cine_bonus.render(10, 10, 14, 40,4);
+		if(!Event.cine_futur)
+			cine_futur.render(2, 8, 7, 40,5);
+		if(!Event.cine_chinois)
+			cine_chinois.render(11, 4, 5, 70,6);
+		if(!Event.cine_renaissance)
+			cine_renaissance.render(9, 6, 4, 70,7);
+		if(Event.goSkyRoom && !Event.cine_skyroom)
+			cine_skyroom.render(10, 11, 8, 60,8);
+		if(Event.spartaland_cine && !Event.cine_spartaland){
 			if(cpt_spartaland>240){
 				Event.cinematic = true;
-				cine_spartaland.render(8, 9, 8, 70);
+				cine_spartaland.render(8, 9, 8, 70,9);
 				Player.setX(500);
 				if(!Event.cinematic){
 					Map.setIDx(10);
@@ -435,6 +533,12 @@ public class Resource {
 			if(cptSkyRoom<160) cptSkyRoom++;
 			else
 				Event.credit = true;
+		}
+		if(Map.isMap(3, 10)){
+			if(cptDialogSkyroom2<200){
+				cptDialogSkyroom2++;
+				Dove.renderDoveDialog("Il doit y avoir un mécanisme caché pour accéder au pistolet...");
+			}
 		}
 		
 			

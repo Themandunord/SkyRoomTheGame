@@ -139,8 +139,8 @@ public class CharacterSelector extends BasicGameState{
 		if ((posX > cGirl.getX() && posX < (cGirl.getX()+cGirl.getWidth()) && (posY < cGirl.getY()+cGirl.getHeight() && posY > cGirl.getY()))) {
 			if (Mouse.isButtonDown(0)) {
 				Player.setSex("girl");
-				sbg.enterState(1);
-				sbg.enterState(1, new FadeOutTransition (),new FadeInTransition(Color.black));
+				sbg.enterState(10);
+				sbg.enterState(10, new FadeOutTransition (),new FadeInTransition(Color.black));
 			}
 		}
 		if ((posX >back.getX() && posX < (back.getX()+back.getWidth())) && (posY < (back.getY()+back.getHeight()) && posY > back.getY())) {

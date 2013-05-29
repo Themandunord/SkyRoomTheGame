@@ -27,7 +27,7 @@ public class Intro extends BasicGameState {
 	/** Abscisse et coordonnée du texte au départ */
 	private float x = 50f,y=610f;
 	/** Image de fond de l'introdcution */
-	private Image background, intro_texte;
+	private Image background, intro_text;
 	/** Police de caractère de l'introduction */
 	private UnicodeFont uFont;
 	private Particle particle;
@@ -58,7 +58,7 @@ public class Intro extends BasicGameState {
 				"de tonalité que nous vous retrouvons, name, dans l’amphi si bien connue \n" +
 				"des élèves de l’école.";
 		background = new Image("res/menu/backgroundLoad.jpg");
-		intro_texte = new Image("res/intro/intro.png");
+		intro_text = new Image("res/intro/intro.png");
 		uFont = new UnicodeFont("res/all/comic.ttf", 15 , false, false);
 		uFont.addAsciiGlyphs();
 		uFont.addGlyphs(400, 600);
@@ -83,7 +83,7 @@ public class Intro extends BasicGameState {
 		String introduction = intro.replaceAll("name", Menu.getPseudo());
 		background.draw(0,0);
 		particle.render(400, 300);
-		intro_texte.draw(x, y);
+		intro_text.draw(x, y);
 		//uFont.drawString(x, y, introduction);
 	}
 

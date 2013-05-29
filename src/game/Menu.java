@@ -178,13 +178,13 @@ public class Menu extends BasicGameState {
 			//g.fillRect(250, 250, loaded * 20, 20); // On créé un rectangle qui se remplie
 			//g.drawRect(250, 250, total * 20, 20);// il faudra le placer à la fin pour que cela soit centré
 			loadBar.draw(163,0,800*loadingBar,600);  // On fait agrandir la barre de chargement.
-			Game.uFont.drawString(380, 350, ""+Math.round(loadingBar*100)+"%");
+			Game.uFont.drawString(385, 330, ""+Math.round(loadingBar*100)+"%");
 		}
 		
 		if (started || Event.STARTED){
 			if(!isGeneric){
 				if(cpt<25) cpt++;
-				//sbg.enterState(5, new EmptyTransition(),new FadeInTransition(Color.black));
+				sbg.enterState(5, new EmptyTransition(),new FadeInTransition(Color.black));
 				isGeneric = true; 
 			}
 		}

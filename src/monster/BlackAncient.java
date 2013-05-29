@@ -42,7 +42,7 @@ public class BlackAncient extends Monster {
 	 * Instanciation du Black Ancient avec une vitesse et une vie par défaut
 	 */
 	public BlackAncient() {
-		super(0.05f,30);
+		super(0.05f,250);
 	}
 	
 	public void init() throws SlickException{
@@ -82,6 +82,7 @@ public class BlackAncient extends Monster {
 				animLight.stop();
 			}
 		}
+		rec.setBounds(0,0,-100,-100);
 
 		
 	}

@@ -21,7 +21,7 @@ public class ReloadGame {
 		Player.setY(380f);
 		Map.setIDx(0);
 		Map.setIDy(0);
-		Hud.setNbrHeart(5);
+		Hud.setNbrHeart(6);
 		Item.setLEMON(0);
 		Item.setAPPLE(0);
 		GameSound.setCompteur(0);

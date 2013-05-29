@@ -74,6 +74,7 @@ public class PauseState{
 		
 			Player.setMoving(false);
 			Event.cinematic = true;
+			Event.notMove = true;
 			
 			int posX = Mouse.getX();    // attrape la position de la souris
 			int posY = Math.abs((Mouse.getY())-600);
@@ -113,6 +114,7 @@ public class PauseState{
 		else {
 			Player.setMoving(true);
 			Event.cinematic = false;
+			Event.notMove = false;
 			
 		}
 	}

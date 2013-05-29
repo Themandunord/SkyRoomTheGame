@@ -22,6 +22,8 @@ import ressource.Resource;
 import ressource.World4;
 import serialize.ReloadSave;
 import serialize.Serializer;
+import util.HelpScreen;
+import util.Timer;
 
 /** 
  * Classe qui gère l'ensemble du jeu ( GamePlay )
@@ -54,6 +56,8 @@ public class Game extends BasicGameState {
 	private Credit credit;
 	private boolean isSave,isReload;
 	private int cptSave,cptReload,cptInput;
+	private Timer timer;
+	private HelpScreen help1,help2,help3;
 	
 	private Color color;
 	
@@ -81,11 +85,14 @@ public class Game extends BasicGameState {
 		reload = new ReloadSave();
 		ressource = new Resource();
 		fog = new World4();
-		hud = new Hud(5);
+		hud = new Hud(Event.maxHeart);
 		dove = new Dove();
 		pause = new PauseState();
 		save = new Serializer();
 		credit = new Credit();
+		help1 = new HelpScreen("1");
+		help2 = new HelpScreen("2");
+		help3 = new HelpScreen("3");
 		hero.init();
 		map.init(gc);
 		music.init();
@@ -201,6 +208,7 @@ public class Game extends BasicGameState {
 			ressource.initNPC();
 			Event.fin = false;
 			Event.girl_cine = false;
+			timer = new Timer();
 			System.gc();
 		}
 		if(Event.makeReload){
@@ -217,6 +225,7 @@ public class Game extends BasicGameState {
 			reload.reloadGame();
 			Event.makeReload = false;
 			Event.girl_cine = false;
+			timer = new Timer(Event.time);
 			System.gc();
 		}
 		
@@ -229,7 +238,10 @@ public class Game extends BasicGameState {
 		else{
 			color.a = 0;
 			Event.fadeTransition = false;
-		}			
+		}	
+		
+		
+			
 	}
 
 	/**
@@ -255,6 +267,16 @@ public class Game extends BasicGameState {
 		}
 		fog.renderUp();
 		hud.render(sbg,g);
+		
+		if(timer!=null){
+			if(!PauseState.PAUSE){
+				String time = timer.updateTime();
+				Event.time = timer.getMinute();
+				Game.uFont.drawString(10, 30, ""+timer.updateTime());
+			}
+		}
+		
+		
 	    try {
 			ressource.renderDialog(g,sbg);
 			dove.renderDialogDove();
@@ -273,6 +295,11 @@ public class Game extends BasicGameState {
 				Menu.pseudo = "Laura";
 	    }
 	    credit.update(6, 240, sbg);
+	    
+	    help1.render(0, 2);
+	   	help2.render(2, 3);
+	   	if(Event.WaterGun)
+	   		help3.render(2, 10);
 		
 	    Color old = g.getColor();
 		g.setColor(color);
@@ -312,8 +339,7 @@ public class Game extends BasicGameState {
 			g.fillRect(0, 0, 800, 600);
 			g.setColor(Color.white);
 			Game.uFont.drawString(270, 280, "Chargement de votre partie en cours...");
-		}
-		
+		}	
 		
 	}
 

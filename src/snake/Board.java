@@ -15,11 +15,11 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 public class Board extends BasicGameState
 {
 
-	private final int WIDTH = 800;
-	private final int HEIGHT = 600;
+	private final int WIDTH = 700;
+	private final int HEIGHT = 530;
 	private final int DOT_SIZE = 10;
 	private final int ALL_DOTS = 900;
-	private final int RAND_POS = 59;
+	private final int RAND_POS = 49;
 	private int x[] = new int[ALL_DOTS];
 	private int y[] = new int[ALL_DOTS];
 	
@@ -38,6 +38,7 @@ public class Board extends BasicGameState
 	private Image banana;
 	private Image watermelon;
 	private Image instruct;
+	private Image background;
 	
 	private boolean left = false;
     private boolean right = true;
@@ -77,13 +78,14 @@ public class Board extends BasicGameState
         dot2 = new Image("resSnake/snakeBody.png"); 			//body
         gameOver = new Image("resSnake/gameoverSnake2.png");	//GameOver
         instruct = new Image("resSnake/snakeInstructions.png"); 	//instructions
+        background = new Image("resSnake/snakeBackground.png"); //background
         
 	}
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
-		
+
 		if(!isEaten && !instructions){
 			if(Math.random()<0.4){
 				pomme = true;
@@ -130,13 +132,12 @@ public class Board extends BasicGameState
 		if(!inGame && !instructions)
 		{
 			gameOver.draw(0,0);
-			if (score<20)
-				g.drawString("Ton score est de "+score+". C'est pas top...",70, 500);
-			else if (score<50)
-				g.drawString("Ton score est de "+score+". C'est pas mal...",70, 500);
-			else
-				g.drawString("Ton score est de "+score+" ! Champion !",70, 500);			
+			
+				g.drawString("SCORE : "+score,110, 480);
+				
 		}
+		background.draw();
+		
 		
 	}
 
@@ -186,11 +187,16 @@ public class Board extends BasicGameState
 	}
 	
 	public void locateApple() {
-        
-		int r = (int) (Math.random() * RAND_POS);
-        apple_x = ((r * DOT_SIZE));
-        r = (int) (Math.random() * RAND_POS);
-        apple_y = ((r * DOT_SIZE));
+      
+			
+    	   int r = (int) (Math.random() * RAND_POS);
+    	   while(!(r*DOT_SIZE>110 && r*DOT_SIZE<500))
+    		   r = (int) (Math.random() * RAND_POS); 
+    	   apple_x = ((r * DOT_SIZE));
+    	   r = (int) (Math.random() * RAND_POS);
+    	   if(r>11)
+    		   apple_y = ((r * DOT_SIZE));
+		
     }
 	public void move(Input input) {
 		
@@ -284,7 +290,7 @@ public class Board extends BasicGameState
           inGame = false;
       }
 
-      if (y[0] < 0) {
+      if (y[0] <= 70) {
           inGame = false;
       }
 
@@ -292,7 +298,7 @@ public class Board extends BasicGameState
           inGame = false;
       }
 
-      if (x[0] < 0) {
+      if (x[0] < 100) {
           inGame = false;
       }
           	  

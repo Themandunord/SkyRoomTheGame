@@ -210,7 +210,7 @@ public class Monster {
 	 * @throws SlickException
 	 */
 	public void update(GameContainer gc, int delta) throws SlickException{
-		if(alive && !Event.cinematic){ // S'il est en vie ( Evite de prendre de la mémoire pour rien )
+		if(alive && !Event.cinematic && !Event.notMove && !Event.helpScreen){ // S'il est en vie ( Evite de prendre de la mémoire pour rien )
 			
 		rectMonster.setBounds(xM+5,yM+2,25,27);
 		
@@ -279,6 +279,7 @@ public class Monster {
 			moveTo(1,delta);
 		compteurDeplacement++;
 		}
+		
 	}
 
 	/**
@@ -290,7 +291,7 @@ public class Monster {
 	 * @param delta
 	 */
 	public void moveTo(int i, int delta){
-			if(/*Math.sqrt(Math.pow(xM-Player.getX(),2)+Math.pow(yM - Player.getY(),2)) > 33 &&*/ path != null && currentMonsterAnim!=null){
+			if(Math.sqrt(Math.pow(xM-Player.getX(),2)+Math.pow(yM - Player.getY(),2)) > 33 && path != null && currentMonsterAnim!=null){
 				if(path.getX(i)<path.getX(i-1)){
 					xM-=speed*delta;
 					left=true;
@@ -456,5 +457,19 @@ public class Monster {
 		this.declareDead = declareDead;
 	}
 	
+	
+	public void destroySprite() throws SlickException{
+		if(this.monsterSprite!=null){
+			this.monsterSprite.destroy();
+			for(int i =0 ; i< monster_down.getFrameCount() ; i++)
+				monster_down.getImage(i).destroy();
+			for(int i =0 ; i< monster_up.getFrameCount() ; i++)
+				monster_up.getImage(i).destroy();
+			for(int i =0 ; i< monster_right.getFrameCount() ; i++)
+				monster_right.getImage(i).destroy();
+			for(int i =0 ; i< monster_left.getFrameCount() ; i++)
+				monster_left.getImage(i).destroy();
+		}
+	}
 }
 

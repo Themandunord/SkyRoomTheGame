@@ -80,6 +80,10 @@ public class EventNPCDialog {
 			renderDial(200,470, 208, g);
 			EventNPCDialog.NPCName = "halo";
 		}
+		else if(Map.isMap(9, 5)){
+			renderDial(200,470, 430, g);
+			EventNPCDialog.NPCName = "king";
+		}
 		else compteur = 0;
 	}
 	
@@ -94,7 +98,7 @@ public class EventNPCDialog {
 	 */
 	public static void renderDial(int x, int y , int ID,Graphics g) throws FileNotFoundException{
 		
-		if(compteur<240){
+		if(compteur<280){
 			isDialogEvent =true;
 			Event.cinematic = true;
 			npc.NPCDialoge(ID);

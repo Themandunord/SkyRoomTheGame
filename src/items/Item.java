@@ -181,11 +181,10 @@ public class Item {
 				else if(isCostume){
 					Game.uFont.drawString(210,477,"Félicitations, tu as trouvé une Combinaison de Stormtrooper !\n" +
 							"Elle te sera utile pour passer inaperçu. En plus, il y a un Blaster !\n" +
-							"Attention, ses munitions sont limitées.\n" +
-							"(appuie sur la touche CTRL-G pour tirer)");
+							"Attention, ses munitions sont limitées.\n");
 				}
 				else if(isTorch){
-					Game.uFont.drawString(210,477,"Tu as récupéré une torche !\nTu peux maintenant traverser l'uha sans problèmes !");
+					Game.uFont.drawString(210,477,"Tu as récupéré une torche !\nTu peux maintenant traverser l'UHA sans problème !");
 				}
 				else if(isSpeed){
 					Game.uFont.drawString(210,477,"Tu as récupéré un boost de vitesse !");

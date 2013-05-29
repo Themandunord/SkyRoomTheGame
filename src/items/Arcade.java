@@ -48,7 +48,7 @@ public class Arcade {
 			if(rec.intersects(Player.getRect())){
 				dialbox.draw(195,470);
 				Game.uFont.drawString(210,475,""+text);
-				if(InputControl.inputPressed(Input.KEY_G) || input.isControlPressed(7)){
+				if(InputControl.inputPressed(Input.KEY_RALT) || input.isControlPressed(7)){
 					sbg.enterState(sbgID);
 					sbg.enterState(sbgID, new FadeOutTransition (Color.black),new FadeInTransition(Color.black));
 				}

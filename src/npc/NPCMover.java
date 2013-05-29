@@ -142,7 +142,7 @@ public class NPCMover extends NPC {
 						cpt++;
 						dialbox.draw(300,250);
 						Game.uFont.drawString(310, 260,"Quoi ?! Cet homme que les dieux t'ont envoyé vient de te\nsauver la vie" +
-								" et tu en profites pour te moquer de lui ?\nTu vas voir ce que j'en fait de ton accès !! SpartaaaAa !!");
+								" et tu en profites pour te moquer de lui ?\nTu vas voir ce que j'en fait de ta barrière !! SpartaaaAa !!");
 					}
 					else{
 						if(y<650){

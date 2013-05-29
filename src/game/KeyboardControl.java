@@ -22,7 +22,7 @@ public class KeyboardControl extends BasicGameState{
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg)
 			throws SlickException {
-		//bg = new Image("")
+		bg = new Image("res/option/controls-clavier.png");
 		
 	}
 
@@ -30,6 +30,7 @@ public class KeyboardControl extends BasicGameState{
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
 		// TODO Auto-generated method stub
+		bg.draw();
 		Option.back.render(gc, g);
 	}
 

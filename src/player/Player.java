@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import event.Event;
+import game.DifficultySelector;
 import game.GameSound;
 import game.Hud;
 import game.InputControl;
@@ -221,7 +222,7 @@ public class Player {
 				if (collision == 1) {
 					collisionTimer = System.currentTimeMillis();  // permet de donner 2 secondes au joueur avant de se faire retirer a nouveau une vie
 					collision = 0;
-					if(Event.bikini){
+					if(Event.bikini && !DifficultySelector.GOD){
 						if(Hud.getBikiniLife()>0)
 							Hud.setBikiniLige(Hud.getBikiniLife()-1);
 						else {
@@ -230,7 +231,8 @@ public class Player {
 						}
 					}
 					else {
-						Hud.setNbrHeart(Hud.getNbrHeart() - 1);  // On retire un coeur
+						if(!DifficultySelector.GOD)
+							Hud.setNbrHeart(Hud.getNbrHeart() - 1);  // On retire un coeur
 					}
 					
 					if(sex.equals("boy"))
@@ -241,6 +243,16 @@ public class Player {
 					isHit = true;
 				}
 				else if (collision == 0) {
+					int time;
+					if(DifficultySelector.EASY)
+						time = 3000;
+					else if(DifficultySelector.MEDIUM)
+						time = 2000;
+					else if(DifficultySelector.HARD)
+						time = 1000;
+					
+					
+					
 					if (collisionTimer + 2000 < System.currentTimeMillis()) 
 					{
 						collision = 1;
@@ -288,6 +300,7 @@ public class Player {
 			
 		if(Map.isMap(11, 1)){
 			Dove.doveIsOnPlayer = true;
+			Event.blasterStorm = false;
 		}
 		
 		for(int i=0 ; i<IDX.length;++i){
@@ -298,6 +311,7 @@ public class Player {
 		if(change){
 			ChangeAnim(2);
 			Dove.doveIsOnPlayer = false;
+			Event.doveOnPlayer = false;
 			rectHero.setBounds(xHero+10, yHero+5, 18, 15);
 		}
 		else {
@@ -335,7 +349,7 @@ public class Player {
 	 */
 	public void inputControl(int delta){
 		
-		if(moving & !isFall){
+		if(moving & !isFall && !Event.helpScreen){
 				if(Map.isSlow(xHero+5, yHero+25)){
 					speed = 0.10f; 
 				}
@@ -345,9 +359,13 @@ public class Player {
 				else if(Event.spaceShip)
 					speed = 0.20f;
 				else if (Event.slowAncient)
-					speed = 0.10f;
+					speed = 0.07f;
 				else speed = 0.15f;
 					
+				if(Map.isFood(xHero+10, yHero+30)){
+					Hud.setNbrHeart(Event.maxHeart);			
+				}
+				
 				if(Map.isFall(xHero+10, yHero+30)){
 					xHero+=32; isFall = true;			
 				}
@@ -362,16 +380,16 @@ public class Player {
 				}
 				
 				
-				if(!Event.waterRennaissance && Map.isWater(xHero+5, yHero+25)){
+				if(!Event.waterRennaissance && !Event.water && Map.isWater(xHero+5, yHero+25)){
 					Event.waterRennaissance = true;
 				}
-				if(Event.waterRennaissance && !Event.purification && Map.isPurification(xHero+5, yHero+25)){
+				if(Event.waterRennaissance && !Event.purification  && !Event.water && Map.isPurification(xHero+5, yHero+25)){
 					Event.purification = true;
 				}
-				if(InputControl.inputDown(Input.KEY_LCONTROL) && !Bo.isHit){
+				if(InputControl.inputDown(Input.KEY_SPACE) && !Bo.isHit){
 					isBo = true;
 				}else isBo = false;
-				if(InputControl.inputDown(Input.KEY_LCONTROL)){
+				if(InputControl.inputDown(Input.KEY_SPACE)){
 					isSword = true;	
 				}else isSword = false;
 				
@@ -386,7 +404,7 @@ public class Player {
 				
 				
 				
-				if(InputControl.inputPressed(Input.KEY_LCONTROL)){
+				if(InputControl.inputPressed(Input.KEY_SPACE)){
 							Bo.isHit = false;
 				}	
 				if(InputControl.inputDown(Input.KEY_UP) || input.isControllerUp(0))
@@ -444,7 +462,7 @@ public class Player {
 	 */
 	public void launchWaterGun(int delta){
 		if(Event.WaterGun){
-				if(InputControl.inputPressed(Input.KEY_LCONTROL) || input.isControlPressed(4)){
+				if(InputControl.inputPressed(Input.KEY_SPACE) || input.isControlPressed(4)){
 					if(direction==1) water.add(new WaterGun(xHero+16, yHero,1));
 					if(direction==2) water.add(new WaterGun(xHero+16, yHero+25,2));
 					if(direction==3) water.add(new WaterGun(xHero+28, yHero+18,3));
@@ -465,7 +483,7 @@ public class Player {
 	public void launchBlaster(int delta){
 		if(Event.blaster){
 			cptBlaster++;
-				if((InputControl.inputPressed(Input.KEY_LCONTROL) || input.isControlPressed(4)) && Blaster.getAmmo()>0){
+				if((InputControl.inputPressed(Input.KEY_SPACE) || input.isControlPressed(4)) && Blaster.getAmmo()>0){
 					if(Event.blasterStorm && cptBlaster>20){
 						if(direction==1) listBlaster.add(new Blaster(xHero+10, yHero+8,0,0,"blasterShot"));
 						if(direction==2) listBlaster.add(new Blaster(xHero-8, yHero+10,1,0,"blasterShot"));

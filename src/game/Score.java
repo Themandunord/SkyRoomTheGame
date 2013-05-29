@@ -2,6 +2,7 @@ package game;
 
 import items.Item;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -14,9 +15,11 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
+import event.Event;
+
 public class Score extends BasicGameState{
 
-	private Image bg;
+	private Image bg,espace,score,rubis,saphirs,timing,point;
 	private UnicodeFont uFont;
 	
 	public Score(int ID){
@@ -26,10 +29,17 @@ public class Score extends BasicGameState{
 	public void init(GameContainer gc, StateBasedGame sbg)
 			throws SlickException {	
 		this.bg = new Image("res/menu/backgroundLoad.jpg");
-		uFont = new UnicodeFont("res/all/comic.ttf", 25 , false, false);
+		this.espace = new Image("res/score/espace.png");
+		this.score = new Image("res/score/score.png");
+		this.rubis = new Image("res/score/rubis.png");
+		this.saphirs= new Image("res/score/saphirs.png");
+		this.timing = new Image("res/score/timing.png");
+		this.point = new Image("res/score/points.png");
+		uFont = new UnicodeFont("res/score/police.ttf", 35  , false, false);
 		uFont.addAsciiGlyphs();
 		uFont.addGlyphs(400, 600);
-		uFont.getEffects().add(new ColorEffect(java.awt.Color.BLACK));  
+		java.awt.Color color = new java.awt.Color(136, 213, 242);
+		uFont.getEffects().add(new ColorEffect(color));  
 		uFont.loadGlyphs();	
 	}
 
@@ -38,13 +48,20 @@ public class Score extends BasicGameState{
 			throws SlickException {	
 		
 		bg.draw(0, 0);
-		
+		espace.draw(60, 500);
+		rubis.draw(230,120);
+		saphirs.draw(200,200);
+		score.draw(230,0);
+		timing.draw(175, 300);
+		point.draw(380, 400);
 		int Nb_rubis = Item.getNB_Rubis();
 		int Nb_saphirs = Item.getNB_Saphir();
-		int score = Nb_rubis*20 + Nb_saphirs*50;
-		uFont.drawString(210, 200, "Votre score est de "+score+" points");
-		uFont.drawString(215, 300, "Merci d'avoir jouer à SkyRoom");
-		uFont.drawString(195, 520, "Pressez la touche ESPACE pour continuer...");
+		int time = Event.time*60;
+		int score = (int) (3000*Math.exp(-0.00075*(time - 15*60))+50*Nb_rubis+20*Nb_saphirs);
+		uFont.drawString(400, 130, ""+Nb_rubis);
+		uFont.drawString(400, 210, ""+Nb_saphirs);
+		uFont.drawString(350, 310, ""+time/60);
+		uFont.drawString(250, 420, ""+score);
 	}
 
 	@Override

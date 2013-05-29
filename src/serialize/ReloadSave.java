@@ -5,6 +5,7 @@ import items.Item;
 import java.util.Scanner;
 
 import event.Event;
+import game.DifficultySelector;
 import game.GameSound;
 import game.Hud;
 import game.InputControl;
@@ -33,6 +34,7 @@ public class ReloadSave {
 	private Cheat cheat;
 	private Serializer serializer;
 	private Deserializer deserializer;
+	private Input input;
 	
 	public ReloadSave(){
 		serializer = new Serializer();
@@ -40,7 +42,7 @@ public class ReloadSave {
 	}
 	
 	public void reload(GameContainer gc, StateBasedGame sbg){
-		
+		input = gc.getInput();
 		
 		if(InputControl.inputPressed(Input.KEY_R)){
 			Event.makeReload = true;	
@@ -68,8 +70,12 @@ public class ReloadSave {
 		if(InputControl.inputPressed(Input.KEY_I)){
 			Event.fin = true;
 		}
-		if(InputControl.inputPressed(Input.KEY_ESCAPE)){
+		if(InputControl.inputPressed(Input.KEY_ESCAPE) || input.isControlPressed(11)){
 			PauseState.PAUSE = !PauseState.PAUSE;
+		}
+		if(InputControl.inputPressed(Input.KEY_Y)){
+			sbg.enterState(31);
+			sbg.enterState(31, new EmptyTransition (),new BlobbyTransition(Color.black));
 		}
 		
 		if(isCheat){
@@ -89,83 +95,102 @@ public class ReloadSave {
 	
 		deserializer.DeSerializere();
 
-		Player.setX(Float.parseFloat(textEncryptor.decrypt(Deserializer.getSaveData().getxHero())));
-		Player.setY(Float.parseFloat(textEncryptor.decrypt(Deserializer.getSaveData().getyHero())));
-        Map.setInitNPC(false);
-        Map.setInit(false);
-		Map.setIDx(Integer.valueOf(textEncryptor.decrypt(Deserializer.getSaveData().getIDx())));
-		Map.setIDy(Integer.valueOf(textEncryptor.decrypt(Deserializer.getSaveData().getIDy())));
-        Map.setInitNPC(false);
-        Map.setInit(false);
-		Hud.setNbrHeart(Integer.valueOf(textEncryptor.decrypt(Deserializer.getSaveData().getNbrHeart())));;
-		GameSound.setCompteur(0);
-		GameSound.music = Deserializer.getSaveData().getMusic();
-		GameSound.isPlaying(GameSound.getTree().get(GameSound.music));
-		try {
-			Player.setSex(Deserializer.getSaveData().getSex());
-		} catch (SlickException e) {
-			e.printStackTrace();
+		if(!Event.haveNoSave){
+			Player.setX(Float.parseFloat(/*textEncryptor.decrypt(*/Deserializer.getSaveData().getxHero()))/*)*/;
+			Player.setY(Float.parseFloat(/*textEncryptor.decrypt(*/Deserializer.getSaveData().getyHero()))/*)*/;
+	        Map.setInitNPC(false);
+	        Map.setInit(false);
+			Map.setIDx(Integer.valueOf(/*textEncryptor.decrypt(*/Deserializer.getSaveData().getIDx()))/*)*/;
+			Map.setIDy(Integer.valueOf(/*textEncryptor.decrypt(*/Deserializer.getSaveData().getIDy()))/*)*/;
+	        Map.setInitNPC(false);
+	        Map.setInit(false);
+			Hud.setNbrHeart(Integer.valueOf(/*textEncryptor.decrypt(*/Deserializer.getSaveData().getNbrHeart()))/*)*/;
+			GameSound.setCompteur(0);
+			GameSound.music = Deserializer.getSaveData().getMusic();
+			GameSound.isPlaying(GameSound.getTree().get(GameSound.music));
+			try {
+				Player.setSex(Deserializer.getSaveData().getSex());
+			} catch (SlickException e) {
+				e.printStackTrace();
+			}
+			Menu.setPseudo(Deserializer.getSaveData().getPseudo());
+			Event.isDove = Deserializer.getSaveData().isDove();
+			Event.SWORD = Deserializer.getSaveData().isSword();
+			Event.WaterGun = Deserializer.getSaveData().isWaterGun();
+			Event.blaster = Deserializer.getSaveData().isBlaster();
+			Event.blasterStorm = Deserializer.getSaveData().isBlasterStorm();
+			Event.volume = Deserializer.getSaveData().getVolume();
+			Event.stan = Deserializer.getSaveData().isStan();
+			Event.loic = Deserializer.getSaveData().isLoic();
+			Event.amael =Deserializer.getSaveData().isAmael();
+			Event.alex = Deserializer.getSaveData().isAlex();
+			Event.boss_chinois =Deserializer.getSaveData().isBoss_chinois();
+			Event.special_item_bonus = Deserializer.getSaveData().getSpecial_item_bonus();
+			Event.specialItemBonus = Deserializer.getSaveData().isSpecialItemBonus();
+			Event.haveSpecialBonus = Deserializer.getSaveData().isHaveSpecialBonus();
+			Event.goSkyRoom = Deserializer.getSaveData().isGoSkyRoom();
+			Event.fontaine = Deserializer.getSaveData().isFontaine();
+			Event.waterQuete =Deserializer.getSaveData().isWaterQuete();
+			Event.waterRennaissance = Deserializer.getSaveData().isWaterRennaissance();
+			Event.purification = Deserializer.getSaveData().isPurification();
+			Event.champiQuete = Deserializer.getSaveData().isChampiQuete();
+			Event.champi1 =Deserializer.getSaveData().isChampi1();
+			Event.champi2 = Deserializer.getSaveData().isChampi2();
+			Event.champi3= Deserializer.getSaveData().isChampi3();
+			Event.loveQuete = Deserializer.getSaveData().isLoveQuete();
+			Event.loverQuete = Deserializer.getSaveData().isLoverQuete();
+			Event.finish_loveQuete =Deserializer.getSaveData().isFinish_loveQuete();
+			Event.spartaland_cine =Deserializer.getSaveData().isSpartaland_cine();
+			Event.bonus_cine =Deserializer.getSaveData().isBonus_cine();
+			Event.credit =Deserializer.getSaveData(). isCredit();
+			Event.remy =Deserializer.getSaveData().isRemy();
+			Event.EVENT =Deserializer.getSaveData().getEVENT();
+			Event.NPC_event =Deserializer.getSaveData().getNPC_event();
+			Event.futur_gate =Deserializer.getSaveData().isFutur_gate();
+			Event.spartiateFuturEvent = Deserializer.getSaveData().isSpartiateFuturEvent();
+			Event.bo = Deserializer.getSaveData().isBo();
+			Event.cinematic =Deserializer.getSaveData().isCinematic();
+			Event.girl_cine = Deserializer.getSaveData().isGirl_cine();
+			Event.costume = Deserializer.getSaveData().isCostume();
+			Event.bikini = Deserializer.getSaveData().isBikini();
+			Event.costume_partiel =Deserializer.getSaveData().isCostume_partiel();
+			Event.spartanSpace =Deserializer.getSaveData().isSpartanSpace();
+			Event.spaceShip = Deserializer.getSaveData().isSpaceShip();
+			Event.spaceKey = Deserializer.getSaveData().isSpaceKey();
+			Event.torch = Deserializer.getSaveData().isTorch();
+			Event.halo = Deserializer.getSaveData().getHalo();
+			Event.boss_futur_explosion = Deserializer.getSaveData().isBoss_futur_explosion();
+			Event.water = Deserializer.getSaveData().isWater();
+			Event.maxHeart = Deserializer.getSaveData().getMaxHeart();
+			Event.MJ =Deserializer.getSaveData().isMJ();
+			Event.renderLetter = Deserializer.getSaveData().isRenderLetter();
+			Event.enscmuReady = Deserializer.getSaveData().isEnscmuReady();
+			Event.yesRU = Deserializer.getSaveData().isYesRU();
+			Event.notRU = Deserializer.getSaveData().isNotRU();
+			Event.tram = Deserializer.getSaveData().isTram();
+			Event.wernerGirlOrBoy = Deserializer.getSaveData().isWernerGirlOrBoy();
+			Event.wood = Deserializer.getSaveData().isWood();
+			Event.notSword = Deserializer.getSaveData().isNotSword();
+			Item.setLEMON(Deserializer.getSaveData().getNb_saphir());
+			Item.setAPPLE(Deserializer.getSaveData().getNb_rubis());
+			Event.time = Deserializer.getSaveData().getTime();
+			Event.bossRennaissance = Deserializer.getSaveData().getbossRennaissance();
+			Event.cine_dark = Deserializer.getSaveData().isCine_dark();
+			Event.cine_prehistoire = Deserializer.getSaveData().isCine_prehistoire();
+			Event.cine_stormtrooper = Deserializer.getSaveData().isCine_stormtrooper();
+			Event.cine_bonus = Deserializer.getSaveData().isCine_bonus();
+			Event.cine_futur = Deserializer.getSaveData().isCine_futur();
+			Event.cine_chinois = Deserializer.getSaveData().isCine_chinois();
+			Event.cine_renaissance = Deserializer.getSaveData().isCine_renaissance();
+			Event.cine_skyroom = Deserializer.getSaveData().isCine_skyroom();
+			Event.cine_spartaland = Deserializer.getSaveData().isCine_spartaland();
+			Event.dialog_dove = Deserializer.getSaveData().isDialog_dove();
+			Event.doveOnPlayer = Deserializer.getSaveData().isDoveOnPlayer();
+			DifficultySelector.EASY = Deserializer.getSaveData().isEASY();
+			DifficultySelector.MEDIUM = Deserializer.getSaveData().isMEDIUM();
+			DifficultySelector.HARD = Deserializer.getSaveData().isHARD();
+			DifficultySelector.GOD = Deserializer.getSaveData().isGOD();
 		}
-		Menu.setPseudo(Deserializer.getSaveData().getPseudo());
-		Event.isDove = Deserializer.getSaveData().isDove();
-		Event.SWORD = Deserializer.getSaveData().isSword();
-		Event.WaterGun = Deserializer.getSaveData().isWaterGun();
-		Event.blaster = Deserializer.getSaveData().isBlaster();
-		Event.blasterStorm = Deserializer.getSaveData().isBlasterStorm();
-		Event.volume = Deserializer.getSaveData().getVolume();
-		Event.stan = Deserializer.getSaveData().isStan();
-		Event.loic = Deserializer.getSaveData().isLoic();
-		Event.amael =Deserializer.getSaveData().isAmael();
-		Event.alex = Deserializer.getSaveData().isAlex();
-		Event.boss_chinois =Deserializer.getSaveData().isBoss_chinois();
-		Event.special_item_bonus = Deserializer.getSaveData().getSpecial_item_bonus();
-		Event.specialItemBonus = Deserializer.getSaveData().isSpecialItemBonus();
-		Event.haveSpecialBonus = Deserializer.getSaveData().isHaveSpecialBonus();
-		Event.goSkyRoom = Deserializer.getSaveData().isGoSkyRoom();
-		Event.fontaine = Deserializer.getSaveData().isFontaine();
-		Event.waterQuete =Deserializer.getSaveData().isWaterQuete();
-		Event.waterRennaissance = Deserializer.getSaveData().isWaterRennaissance();
-		Event.purification = Deserializer.getSaveData().isPurification();
-		Event.champiQuete = Deserializer.getSaveData().isChampiQuete();
-		Event.champi1 =Deserializer.getSaveData().isChampi1();
-		Event.champi2 = Deserializer.getSaveData().isChampi2();
-		Event.champi3= Deserializer.getSaveData().isChampi3();
-		Event.loveQuete = Deserializer.getSaveData().isLoveQuete();
-		Event.loverQuete = Deserializer.getSaveData().isLoverQuete();
-		Event.finish_loveQuete =Deserializer.getSaveData().isFinish_loveQuete();
-		Event.spartaland_cine =Deserializer.getSaveData().isSpartaland_cine();
-		Event.bonus_cine =Deserializer.getSaveData().isBonus_cine();
-		Event.credit =Deserializer.getSaveData(). isCredit();
-		Event.remy =Deserializer.getSaveData().isRemy();
-		Event.EVENT =Deserializer.getSaveData().getEVENT();
-		Event.NPC_event =Deserializer.getSaveData().getNPC_event();
-		Event.futur_gate =Deserializer.getSaveData().isFutur_gate();
-		Event.spartiateFuturEvent = Deserializer.getSaveData().isSpartiateFuturEvent();
-		Event.bo = Deserializer.getSaveData().isBo();
-		Event.cinematic =Deserializer.getSaveData().isCinematic();
-		Event.girl_cine = Deserializer.getSaveData().isGirl_cine();
-		Event.costume = Deserializer.getSaveData().isCostume();
-		Event.bikini = Deserializer.getSaveData().isBikini();
-		Event.costume_partiel =Deserializer.getSaveData().isCostume_partiel();
-		Event.spartanSpace =Deserializer.getSaveData().isSpartanSpace();
-		Event.spaceShip = Deserializer.getSaveData().isSpaceShip();
-		Event.spaceKey = Deserializer.getSaveData().isSpaceKey();
-		Event.torch = Deserializer.getSaveData().isTorch();
-		Event.halo = Deserializer.getSaveData().getHalo();
-		Event.boss_futur_explosion = Deserializer.getSaveData().isBoss_futur_explosion();
-		Event.water = Deserializer.getSaveData().isWater();
-		Event.maxHeart = Deserializer.getSaveData().getMaxHeart();
-		Event.MJ =Deserializer.getSaveData().isMJ();
-		Event.renderLetter = Deserializer.getSaveData().isRenderLetter();
-		Event.enscmuReady = Deserializer.getSaveData().isEnscmuReady();
-		Event.yesRU = Deserializer.getSaveData().isYesRU();
-		Event.notRU = Deserializer.getSaveData().isNotRU();
-		Event.tram = Deserializer.getSaveData().isTram();
-		Event.wernerGirlOrBoy = Deserializer.getSaveData().isWernerGirlOrBoy();
-		Event.wood = Deserializer.getSaveData().isWood();
-		Event.notSword = Deserializer.getSaveData().isNotSword();
-		Item.setAPPLE(Deserializer.getSaveData().getNb_saphir());
-		Item.setLEMON(Deserializer.getSaveData().getNb_rubis());
 		
 	}
 }

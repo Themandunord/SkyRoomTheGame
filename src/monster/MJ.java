@@ -30,7 +30,7 @@ public class MJ extends Monster {
 	 * on lui donne une vitesse de 0.07
 	 */
 	public MJ(){
-		super(0.07f,1);
+		super(0.07f,200);
 	}
 	
 	/**
@@ -73,6 +73,7 @@ public class MJ extends Monster {
 					|| (Map.isBlocked(xM, yM+31))||(Map.isBlocked(xM+31, yM)));
 			restartMJ =false;
 			alive = true;
+			this.life = 200;
 		}
 		
 	}

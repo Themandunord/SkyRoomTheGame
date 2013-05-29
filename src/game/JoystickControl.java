@@ -24,13 +24,14 @@ public class JoystickControl extends BasicGameState {
 	public void init(GameContainer arg0, StateBasedGame arg1)
 			throws SlickException {
 		// TODO Auto-generated method stub
-		
+		bg = new Image("res/option/controls-manette.png");
 	}
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
 		// TODO Auto-generated method stub
+		bg.draw();
 		Option.back.render(gc, g);
 	}
 

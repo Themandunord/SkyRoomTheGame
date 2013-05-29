@@ -51,7 +51,7 @@ public class BossSpace extends Monster{
 		super.update(gc, delta);
 		
 		if(alive){
-			rectMonster.setBounds(xM+5,yM+5,54,54);
+			rectMonster.setBounds(xM+10,yM+15,50,45);
 			if(rectMonster.intersects(Player.getRect())){
 				Event.colision = true;
 			}

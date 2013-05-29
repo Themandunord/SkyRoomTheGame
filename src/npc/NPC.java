@@ -67,6 +67,7 @@ public class NPC {
 	private int cptEnscmu;
 	/** True si on peut lancer la cinematique du spartiate */
 	private boolean cineSparta;
+	private Image next;
 	
 	
 	/**
@@ -75,6 +76,7 @@ public class NPC {
 	public NPC(){
 		try {
 			dialbox = new Image("res/all/dialboxEvent.png");
+			next = new Image("res/all/next.png");
 			npc = new NPCDialog();
 		} catch (SlickException e) {
 			e.printStackTrace();
@@ -107,8 +109,7 @@ public class NPC {
 			if(direction.equals("down")) rec = new Rectangle(-100,-100,15,30);
 			Map.setInitNPC(true);// Permet de savoir s'il a été initialiser ou non
 			isReady = true;
-		}
-		 
+		}	 
 	}
 	
 	/**
@@ -205,6 +206,7 @@ public class NPC {
 				dialog = dialog.replaceAll("name", name);
 				dialbox.draw(195,470);
 				Game.uFont.drawString(210,475,""+dialog);
+				
 				compteur++;
 			}
 			if(compteur==160)
@@ -222,6 +224,8 @@ public class NPC {
 				dialbox.draw(200,475);
 				talk = true;
 				Game.uFont.drawString(210,479,""+dialog); // Affiche le dialogue à l'écran
+				if(nbrID!=0 && ID == IDdepart)
+					next.draw(550, 560);
 				//if(!finish){
 					//Player.setMoving(false); // A voir 
 					frontOf = true;
@@ -243,7 +247,7 @@ public class NPC {
 		}
 		
 		if(frontOf){
-			if(InputControl.inputPressed(Input.KEY_J))
+			if(InputControl.inputPressed(Input.KEY_LALT))
 			{
 				if(ID < (IDdepart+nbrID))
 					ID = ID + 1;
@@ -261,13 +265,13 @@ public class NPC {
 			Event.NPC_event=1;
 		
 		if(ID == 316 &&  !Event.enscmuReady){  // Enscmu Girl
-			if(cptEnscmu<160) cptEnscmu++;
-			if(!Event.renderLetter && cptEnscmu>158){
+			if(cptEnscmu<320) cptEnscmu++;
+			if(!Event.renderLetter && cptEnscmu>318){
 				this.ID = 317;
 				Event.enscmuReady = true;
 				Event.tram = true;
 			}
-			if(!Event.renderLetter && cptEnscmu>158)
+			if(!Event.renderLetter && cptEnscmu>318)
 				Event.renderLetter = true;
 			
 		}
@@ -282,6 +286,8 @@ public class NPC {
 		}
 		if(ID == 306 && Event.notRU) // Blonde de la BU qui change de dialogue
 			this.ID = 309;
+		if(ID == 420 && Event.finish_loveQuete)//guarde du monde rennaissance
+			this.ID = 421;
 		if(ID == 401){
 			if(Event.loveQuete)
 				ID = 403;
@@ -376,5 +382,10 @@ public class NPC {
 	 */
 	public String getName(){
 		return name;
+	}
+	
+	public void destroySprite() throws SlickException{
+		if(this.spriteNpc!=null)
+			this.spriteNpc.destroy();
 	}
 }

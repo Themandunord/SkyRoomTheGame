@@ -22,10 +22,11 @@ import org.newdawn.slick.SlickException;
 public class AddMonster {
 
 	/** Liste de Monstre => Donc tour ce qui hérite de Monster */
-	private List<Monster> monsters = new ArrayList<>(); 
+	private List<Monster> monsters = new ArrayList<Monster>(); 
 	/** Permet de savoir s'il y a des monstres sur la map */
 	public static boolean isMonster = true;
 	private int IDx, IDy;
+	private int nbrMonster;
 	
 	/**
 	 * Méthode permettant d'initialiser les monstres sur la map
@@ -39,9 +40,8 @@ public class AddMonster {
 	 * @throws IllegalAccessException
 	 */
 	public void AddMonstere(int nbrMonster, Class<? extends Monster> type, int IDx , int IDy) throws SlickException, InstantiationException, IllegalAccessException{
-		
-		
 		if(Map.isMap(IDx, IDy)){
+			this.nbrMonster = nbrMonster;
 			this.IDx = IDx;
 			this.IDy = IDy;
 			if(  type.isInterface() || Modifier.isAbstract(type.getModifiers()) ) {
@@ -118,5 +118,9 @@ public class AddMonster {
 	 */
 	public void setMonsterList(List<Monster> monsters) {
 		this.monsters = monsters;
+	}
+	
+	public int getNb(){
+		return this.nbrMonster;
 	}
 }

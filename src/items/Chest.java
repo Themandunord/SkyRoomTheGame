@@ -124,8 +124,9 @@ public class Chest {
 				}
 			}
 			
-			if((InputControl.inputPressed(Input.KEY_SPACE) || input.isControlPressed(6)) && Player.getRect().intersects(this.rec)){
-				isOpen =true;
+			if(Player.getRect().intersects(this.rec)){
+				if(InputControl.inputPressed(Input.KEY_LCONTROL) || input.isControlPressed(6))
+					isOpen =true;
 				
 			}
 				

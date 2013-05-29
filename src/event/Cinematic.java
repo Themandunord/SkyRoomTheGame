@@ -19,7 +19,7 @@ public class Cinematic {
 	/** Image de la cinématique */
 	private Image img;
 	/** Image entre deux image */
-	private Image vide;
+	private Image empty;
 	/** Compteur permettant un délai entre deux images */
 	private int cpt;
 	/** Tableau contenant les différents nom des images */
@@ -40,7 +40,7 @@ public class Cinematic {
 		this.current_nbr = 0;
 		this.cpt = 0;
 		try {
-			vide = new Image("res/cinematic/vide.png");
+			empty = new Image("res/cinematic/vide.png");
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
@@ -54,7 +54,7 @@ public class Cinematic {
 	 * @param nbr Nombre d'images
 	 * @param duration Durée entre deux images
 	 */
-	public void render(int IDX, int IDY, int nbr, int duration){
+	public void render(int IDX, int IDY, int nbr, int duration, int ID){
 		if(Map.isMap(IDX, IDY)){
 			if(current_nbr<=nbr){
 				Event.cinematic = true;
@@ -63,6 +63,8 @@ public class Cinematic {
 					cpt++;
 					if(!isLoad){
 						try {
+							if(img!=null)
+								img.destroy();
 							img = new Image("res/cinematic/cine-"+name[current_nbr-1]+".png");
 						} catch (SlickException e) {
 							e.printStackTrace();
@@ -74,22 +76,32 @@ public class Cinematic {
 				}
 				else{
 					current_nbr++;
-					if(vide!=null)
-						vide.draw(0, 0);
+					if(empty!=null)
+						empty.draw(0, 0);
 					isLoad = false;
 				}
 			}else{
 				Event.cinematic = false;
-				if(isLoad){
+				if(img!=null){
 					try {
-						if(img!=null)
-							img.destroy();
-						isLoad = false;
-					} catch (SlickException e) {
-						e.printStackTrace();
+						img.destroy();
+					} catch (SlickException e1) {
+						e1.printStackTrace();
 					}
 				}
+				switch(ID){
+				case 1 : Event.cine_dark = true; break;
+				case 2 : Event.cine_prehistoire = true; break;
+				case 3 : Event.cine_stormtrooper = true; break;
+				case 4 : Event.cine_bonus = true; break;
+				case 5 : Event.cine_futur = true; break;
+				case 6 : Event.cine_chinois = true; break;
+				case 7 : Event.cine_renaissance = true; break;
+				case 8 : Event.cine_skyroom = true; break;
+				case 9 : Event.cine_spartaland = true; break;
+				}
 				Player.setMoving(true);
+				img = null;
 			}
 		}
 	}

@@ -36,6 +36,9 @@ public class FireBall {
 	private static boolean isShoot=false;
 	/** Cercle de collision */
 	private Circle circle;
+	/** Vecteur pour les tirs en diagonale */
+	private Vector2f target,source,distance;
+	private float targetX,targetY;
 	
 	/**
 	 * Initialisation des Ã©lÃ©ments
@@ -49,15 +52,20 @@ public class FireBall {
 	 * @param yShoot Ordonnée
 	 * @param dir Direction
 	 */
-	public FireBall(float xShoot, float yShoot, int dir){
+	public FireBall(String name,float xShoot, float yShoot, int dir){
 		this.dir = dir;
 		this.xShoot = xShoot;
 		this.yShoot = yShoot;
 		fire = new Particle();
-		fire.init("bouleDeFeu");
+		fire.init(name);
 		fire.setReady(true);
 		this.isShoot = true;
 		circle = new Circle(xShoot, xShoot, 5);
+		this.targetX = Player.getX()+16;
+		this.targetY = Player.getY()+16;
+		source = new Vector2f(this.xShoot,this.yShoot);
+		target = new Vector2f(this.targetX,this.targetY);
+		distance = target.copy().sub(source).normalise();
 		
 	}
 	
@@ -77,6 +85,25 @@ public class FireBall {
 		}
 		else isShoot = false;
 		
+	}
+	/**
+	 * Méthode d'update des tir en diagonales
+	 * 
+	 * @param delta
+	 */
+	public void updateDiag(int delta){
+		if(xShoot>-20 && xShoot<820 && yShoot>-20 && yShoot<620){
+			xShoot = source.x;
+			yShoot = source.y;
+			Vector2f deplacement = distance.copy().scale((int)delta*0.2f);
+			source.add(deplacement);
+			fire.update(delta);
+			circle.setLocation(xShoot, yShoot);
+		}
+		else {
+			isShoot = false;
+		}
+
 	}
 	
 	/**

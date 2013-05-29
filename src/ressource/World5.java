@@ -25,7 +25,7 @@ import event.Event;
 public class World5 implements WorldRessource
 {
 
-	private NPC npc;
+	private NPC npc,npc2;
 	private Item champi1,champi2,champi3;
 	private Image souche1,souche2;
 	private Animation purification,fontaine;
@@ -33,6 +33,7 @@ public class World5 implements WorldRessource
 	
 	public World5(){
 		npc = new NPC();
+		npc2 = new NPC();
 		try {
 			champi1 = new Item("champi");
 			champi2 = new Item("champi");
@@ -53,6 +54,9 @@ public class World5 implements WorldRessource
 			npc.init("amoureuxGirl", 405, 8, 7, 0, "down");
 			npc.init("amoureuxBoy", 406, 10, 7, 0, "down");
 			npc.init("spartan", 408, 10, 5, 0, "left");
+			npc.init("guard", 420, 9, 6, 0, "up");
+			npc2.init("guard", 420, 9, 6, 0, "up");
+			npc.init("king", 431, 9, 5, 0, "down");
 		}
 		
 	}
@@ -66,6 +70,7 @@ public class World5 implements WorldRessource
 	public void updateRessource(GameContainer gc, int delta)
 			throws SlickException {
 		npc.update(gc);
+		npc2.update(gc);
 		champi1.itemUpdate();
 		champi2.itemUpdate();
 		champi3.itemUpdate();
@@ -79,8 +84,10 @@ public class World5 implements WorldRessource
 			else npc.render(10, 6, 1, 0, 704, 128, g);
 			npc.render(8, 7, 1, 0, 192, 384, g);
 			npc.render(10, 7, 1, 0, 224, 64,g);
-			if(!Event.finish_loveQuete)
-				npc.render(10, 5, 1, 1, 736, 288, g);
+			npc.render(9, 6, 0, 0, 11*32, 17*32,g);
+			npc2.render(9, 6, 0, 0, 14*32, 17*32,g);
+			npc.render(9, 5, 0, 0, 11*32, 9*32, g);
+			npc.render(10, 5, 1, 1, 736, 288, g);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -117,17 +124,18 @@ public class World5 implements WorldRessource
 	@Override
 	public void renderDialog(Graphics g) throws SlickException, FileNotFoundException {
 		npc.renderDialog();
-		if(Event.waterRennaissance){
+		npc2.renderDialog();
+		if(Event.waterRennaissance && !Event.water){
 			if(cptWaterRennaissance<200){
 				Dove.renderDoveDialog("Tu as récupéré de l'eau du lac !\n" +
-						"Il faudrait aller la purifié sur la pierre dorée !");
+						"Il faudrait aller la purifier sur la pierre dorée !");
 				cptWaterRennaissance++;
 			}		
 		}
-		if(Event.purification){
+		if(Event.purification && !Event.fontaine && !Event.water){
 			if(cptPurification<200){
 				Dove.renderDoveDialog("Tu as purifié l'eau !\n" +
-						"Tu peux allé donner ça à l'homme à terre.");
+						"Tu peux aller donner ça à l'homme à terre.");
 				cptPurification++;
 			}
 				

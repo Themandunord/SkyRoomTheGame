@@ -204,7 +204,7 @@ public class World4 implements WorldRessource{
 		if(Event.renderLetter){
 			if(cpt<300)
 				cpt++;
-			if(cpt>200) Event.renderLetter = false;
+			if(cpt>240) Event.renderLetter = false;
 			letter.draw(0, 0);
 		}
 	}

@@ -41,6 +41,9 @@ public class Dove {
 	private static String dialog_colombe_spartiate;
 	private boolean isSay;
 	
+	public Dove(){
+		this.cpt_dialog = 0;
+	}
 	
 	/**
 	 * Initialisation de la colombe 
@@ -95,10 +98,11 @@ public class Dove {
 			if(Math.sqrt(Math.pow(x-Player.getX(),2)+Math.pow(y - Player.getY(),2)) < 25){
 				Event.isDove = false;
 				doveIsOnPlayer = true;
+				Event.doveOnPlayer = true;
 			}
 		}
 		
-		if(doveIsOnPlayer){
+		if(Event.doveOnPlayer){
 			current_compagnon.start();
 			current_compagnon.draw(Player.getX()-15, Player.getY()-20);
 			
@@ -112,7 +116,7 @@ public class Dove {
 	 * Dialogue lors de son arrivée
 	 */
 	public void renderDialogDove(){
-		if(doveIsOnPlayer && !isSay){
+		if(doveIsOnPlayer && !isSay && !Event.dialog_dove){
 			if(cpt_dialog<200){
 				dove_image.draw(200, 380);
 				dialbox.draw(200, 470);
@@ -122,8 +126,12 @@ public class Dove {
 				dialog_colombe_spartiate = dialog_colombe_spartiate.replaceAll("name", Menu.getPseudo());
 				Game.uFont.drawString(210,477,dialog_colombe_spartiate);
 				cpt_dialog++;
+				
 			}
-			else isSay = true;
+			else {
+				isSay = true;
+				Event.dialog_dove = true;
+			}
 		}
 	}
 	

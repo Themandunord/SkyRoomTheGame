@@ -70,8 +70,7 @@ public class World3 implements WorldRessource{
 			pipe3 = new Pipe("vertical",192,32,1);
 			pipe4 = new Pipe("vertical",480,160,2);
 			pipe5 = new Pipe("horizontal",576,128,2);
-			pipe6 = new Pipe("horizontal",512,64,3);
-			pipe7 = new Pipe("horizontal",542,64,3);
+			pipe6 = new Pipe("vertical", 480, 32, 3);
 			pipe8 = new Pipe("horizontal",704,192,3);
 			pipe9 = new Pipe("horizontal",736,192,3);
 			pipe10 = new Pipe("vertical",640,224,4);
@@ -103,6 +102,9 @@ public class World3 implements WorldRessource{
 	@Override
 	public void initNPC() throws SlickException {
 		if(!Map.isInitNPC()){
+			npc1.destroySprite();
+			npc2.destroySprite();
+			npc3.destroySprite();
 			npc1.init("future1", 201, 3, 8, 0, "down");
 			npc2.init("blueMan", 211, 3, 8, 0, "down");
 			npc1.init("future2", 202, 3, 9, 0, "left");
@@ -119,8 +121,7 @@ public class World3 implements WorldRessource{
 			npc1.init("vide", 207, 1, 9, 0, "down");
 			chest.init("blue_chest", "heart_chest", 2, 9, 20);
 			npcMover.init("spartan", 0, 2, 11, 0, "up");
-		}
-		
+		}		
 	}
 
 	@Override
@@ -143,8 +144,7 @@ public class World3 implements WorldRessource{
 		teleportation.teleport(6, 7, 7, 6, 64, 288);
 		teleportation.teleport(6, 8, 7, 8, 50, 300);
 		teleportation.teleport(7, 8, 6, 8, 650, 300);
-		teleportation.teleport(7, 5, 8, 5, 32, 288);
-		teleportation.teleport(8, 5, 7, 5, 650, 300);
+		teleportation.teleport(7, 5, 9, 6, 12*32, 15*32);
 		teleportation.teleport(12, 7, 6, 0, 32, 320);
 		teleportation.teleport(6, 4, 11, 1, 352, 320);
 		teleportation.teleport(11, 4, 8, 8, 400, 300);
@@ -164,7 +164,7 @@ public class World3 implements WorldRessource{
 		// TODO Auto-generated method stub
 		pipe1.render(); pipe2.render(); pipe3.render();
 		pipe4.render(); pipe5.render(); pipe6.render();
-		pipe7.render(); pipe8.render(); pipe9.render();
+		pipe8.render(); pipe9.render();
 		pipe10.render(); pipe11.render(); pipe12.render();
 		switch1.render(3,10); switch2.render(3,10);
 		switch3.render(3,10); switch4.render(3,10);
@@ -221,7 +221,7 @@ public class World3 implements WorldRessource{
 		}
 				
 		if(Map.isMap(3, 10)){
-			waterGun.render(750, 220);
+			waterGun.render(735, 220);
 		}
 		
 		if(Event.water){

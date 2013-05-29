@@ -37,7 +37,7 @@ public class RedAncient extends Monster{
 	 * instancie la liste de tir
 	 */
 	public RedAncient(){
-		super(0.05f,30);
+		super(0.05f,250);
 		listShoot = new ArrayList<FireBall>();
 	}
 	
@@ -65,16 +65,16 @@ public class RedAncient extends Monster{
 		
 		if(alive && !Event.cinematic){
 			if(left && compteur == 0){
-				listShoot.add(new FireBall(xM+16, yM+16,3));
+				listShoot.add(new FireBall("bouleDeFeu",xM+16, yM+16,3));
 			}
 			if(right && compteur == 0){
-				listShoot.add(new FireBall(xM+16, yM+16,2));
+				listShoot.add(new FireBall("bouleDeFeu",xM+16, yM+16,2));
 			}
 			if(down && compteur == 0){
-				listShoot.add(new FireBall(xM+16, yM+16,1));
+				listShoot.add(new FireBall("bouleDeFeu",xM+16, yM+16,1));
 			}
 			if(up && compteur == 0){
-				listShoot.add(new FireBall(xM+16, yM+16,0));
+				listShoot.add(new FireBall("bouleDeFeu",xM+16, yM+16,0));
 			}
 			compteur++;
 		}

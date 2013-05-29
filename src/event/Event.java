@@ -1,8 +1,10 @@
 package event;
 
+import game.DifficultySelector;
+
 /**
- * Classe contenant les événements permettant de gérer les
- * différentes classes du jeu
+ * Classe contenant les événements permettant de gérer les différentes classes
+ * du jeu
  * 
  * @author Rémy
  * 
@@ -13,7 +15,7 @@ public class Event {
 	/** Event relatif au Menu-Jeu */
 	public static boolean STARTED;
 	/** Event relatif aux NPCFollower */
-	public static int EVENT=0;
+	public static int EVENT = 0;
 	/** Event pour le spartiate dans la préhistoire */
 	public static int NPC_event;
 	/** Portail du monde futur */
@@ -47,12 +49,12 @@ public class Event {
 	public static boolean spartanSpace;
 	/** True on est dans le vaisseau */
 	public static boolean spaceShip;
-	/**  True si on peut aller prendre le vaisseau spatial */
+	/** True si on peut aller prendre le vaisseau spatial */
 	public static boolean spaceKey;
 	/** True si on récupéré la torche du monde UHA */
 	public static boolean torch;
 	/** Volume du jeu */
-	public static float volume=1f;
+	public static float volume = 1f;
 	/** Permet de savoir si on a la colombe ou non */
 	public static boolean isDove;
 	/** Event du perso de halo dans le monde futur */
@@ -69,7 +71,7 @@ public class Event {
 	public static boolean renderLetter;
 	/** True si l'enscmu girl peut nous suivre */
 	public static boolean enscmuReady;
-	/** True si on peut se rendre dans l'enscmu */ 
+	/** True si on peut se rendre dans l'enscmu */
 	public static boolean yesRU;
 	/** True si on peut se rendre dans Werner */
 	public static boolean notRU;
@@ -79,7 +81,7 @@ public class Event {
 	public static boolean wernerGirlOrBoy;
 	/** True si on a récupéré la cape et la capuche dans le coffre de Werner */
 	public static boolean wood;
-	/** True si on a pas encore l'épée et qu'il faut aller la chercher*/
+	/** True si on a pas encore l'épée et qu'il faut aller la chercher */
 	public static boolean notSword;
 	/** True si on peut se rendre pret de la fontaine *Rennaissance* */
 	public static boolean fontaine;
@@ -107,7 +109,7 @@ public class Event {
 	public static boolean spartaland_cine;
 	/** Cinematique du monde bonus */
 	public static boolean bonus_cine;
-	/** True si on peux sauvegarder */	
+	/** True si on peux sauvegarder */
 	public static boolean save;
 	/** True lorsque qu'on veut recharger le jeu completement */
 	public static boolean fin;
@@ -115,19 +117,39 @@ public class Event {
 	public static boolean makeReload;
 	/** Credit du jeu */
 	public static boolean credit;
-	public static boolean remy,stan,alex,loic,amael;
+	public static boolean remy, stan, alex, loic, amael;
 	public static boolean boss_chinois;
 	public static int special_item_bonus;
 	public static boolean specialItemBonus;
 	public static boolean haveSpecialBonus;
 	public static boolean goSkyRoom;
-	
+
 	public static boolean fadeTransition;
+
+	public static int time;
+	public static boolean haveNoSave;
+	public static boolean bossRennaissance;
+
+	public static boolean cine_dark;
+	public static boolean cine_prehistoire;
+	public static boolean cine_stormtrooper;
+	public static boolean cine_bonus;
+	public static boolean cine_futur;
+	public static boolean cine_chinois;
+	public static boolean cine_renaissance;
+	public static boolean cine_skyroom;
+	public static boolean cine_spartaland;
 	
+	public static boolean dialog_dove;
+	public static boolean doveOnPlayer;
+	
+	public static boolean notMove;
+	public static boolean helpScreen;
+
 	/**
 	 * Initialisation de tout les boolean
 	 */
-	public static void initialize(){
+	public static void initialize() {
 		NPC_event = 0;
 		EVENT = 0;
 		colision = false;
@@ -138,28 +160,28 @@ public class Event {
 		girl_cine = false;
 		costume = false;
 		fin = false;
-		futur_gate=false;
-		spartiateFuturEvent=false;
-		blaster=false;
-		blasterStorm=false;
-		bikini=false;
-		costume_partiel=false;
-		spartanSpace=false;
-		spaceShip=false;
-		torch=false;
-		isDove=false;
-		boss_futur_explosion=false;
-		water=false;
-		MJ=false;
-		renderLetter=false;
-		enscmuReady=false;
-		yesRU=false;
-		notRU=false;
-		tram=false;
-		wernerGirlOrBoy=false;
-		wood=false;
-		notSword=false;
-		makeReload=false;
+		futur_gate = false;
+		spartiateFuturEvent = false;
+		blaster = false;
+		blasterStorm = false;
+		bikini = false;
+		costume_partiel = false;
+		spartanSpace = false;
+		spaceShip = false;
+		torch = false;
+		isDove = false;
+		boss_futur_explosion = false;
+		water = false;
+		MJ = false;
+		renderLetter = false;
+		enscmuReady = false;
+		yesRU = false;
+		notRU = false;
+		tram = false;
+		wernerGirlOrBoy = false;
+		wood = false;
+		notSword = false;
+		makeReload = false;
 		spaceKey = false;
 		spartaland_cine = false;
 		bonus_cine = false;
@@ -172,10 +194,17 @@ public class Event {
 		alex = false;
 		loic = false;
 		amael = false;
-		special_item_bonus = 0 ;
+		special_item_bonus = 0;
 		specialItemBonus = false;
 		slowAncient = false;
-		maxHeart = 5;
+		if(DifficultySelector.EASY)
+			maxHeart = 6;
+		else if(DifficultySelector.MEDIUM)
+			maxHeart = 5;
+		else if(DifficultySelector.HARD)
+			maxHeart = 4;
+		else if(DifficultySelector.GOD)
+			maxHeart = 5;
 		fontaine = false;
 		waterQuete = false;
 		waterRennaissance = false;
@@ -193,8 +222,20 @@ public class Event {
 		haveSpecialBonus = false;
 		goSkyRoom = false;
 		halo = 0;
+		haveNoSave = false;
+		bossRennaissance = false;
+		cine_dark = false;
+		cine_prehistoire = false;
+		cine_stormtrooper = false;
+		cine_bonus = false;
+		cine_futur = false;
+		cine_chinois = false;
+		cine_renaissance = false;
+		cine_skyroom = false;
+		cine_spartaland = false;
+		dialog_dove = false;
+		doveOnPlayer = false;
+		helpScreen = false;
 	}
-	
-	
-	
+
 }

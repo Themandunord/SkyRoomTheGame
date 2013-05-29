@@ -52,6 +52,7 @@ public class SpaceShip {
 				takeOf = true;
 				Player.setVisiblePlayer(false);
 				Dove.doveIsOnPlayer = false;
+				Event.doveOnPlayer = false;
 				Event.spartanSpace = false;
 				draft.setReady(true);
 				draft.update(delta);
@@ -66,7 +67,7 @@ public class SpaceShip {
 				Player.setX(380);
 				Player.setY(500);
 				Player.setVisiblePlayer(true);
-				Dove.doveIsOnPlayer = true;
+				//Dove.doveIsOnPlayer = true;
 			}
 		}
 	}

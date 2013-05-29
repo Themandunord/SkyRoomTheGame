@@ -28,7 +28,7 @@ public class Map implements TileBasedMap{
 	/** IDY de la map */
 	private static int IDy;
 	/** Map affichée */
-	private static TiledMap map;
+	private static SkyroomMap map;
 	/** Permet de le changement de map sans rechargement des ressources toutes les frames */
 	private static int NumX, NumY;
 	/** Permet l'initialisation des monstres et des NPC */
@@ -49,7 +49,7 @@ public class Map implements TileBasedMap{
 	 */
 	public void init(GameContainer gc) throws SlickException{
 		this.gc = gc;
-		map = new TiledMap("res/maps/" + IDx + "-" + IDy + ".tmx", "res/maps"); // Charge la Map
+		map = new SkyroomMap("res/maps/" + IDx + "-" + IDy + ".tmx", "res/maps"); // Charge la Map
 		this.one = false;
 		this.two = false;
 		this.three = false;
@@ -70,7 +70,7 @@ public class Map implements TileBasedMap{
 	 * Affiche la map qui se trouve devant le personnage
 	 */
 	public void renderUp(){
-		map.render(0, 0, 0, 0, map.getWidth(), map.getHeight(), 3, false);    // Claque 3..
+		map.render(0, 0, 0, 0, map.getWidth(), map.getHeight(), 3, false);    // Calque 3..
 		
 	}
 	
@@ -91,7 +91,8 @@ public class Map implements TileBasedMap{
 		if (NumX != IDx || NumY != IDy) {
 			NumX = IDx;
 			NumY = IDy;
-			map = new TiledMap("res/maps/" + IDx + "-" + IDy + ".tmx","res/maps");
+			map.destroyTile();
+			map = new SkyroomMap("res/maps/" + IDx + "-" + IDy + ".tmx","res/maps");
 			mapTab();
 			isInit=false;  // Permet de recharger les monstres
 			AddMonster.isMonster = false;  // Permet de savoir s'il y a un monstre ou non;
@@ -271,6 +272,26 @@ public class Map implements TileBasedMap{
 	}
 	
 	/**
+	 * Case de la map où le personnage purifie l'eau
+	 * Avec le logiciel TiledMap => "purification" = "true"
+	 * @param x
+	 * @param y
+	 * @return true si c'est purifié
+	 */
+	public static boolean isFood(float x, float y) {
+		int IDtiles = map.getTileId((int) ((x) / 32), (int) ((y) / 32), 4);
+		String teleport = map.getTileProperty(IDtiles, "food", "false");
+		if (!teleport.equals("false")) {
+			if (teleport.equals("true")) {
+				return true;
+			}
+		} else {
+			return false;
+		}
+		return false;
+	}
+	
+	/**
 	 * Collision seulement si les états sont false
 	 * 
 	 * @param x
@@ -341,6 +362,9 @@ public class Map implements TileBasedMap{
 				return true;
 			}
 			else if (!Event.futur_gate && blockedif.equals("futurgate")) {
+				return true;
+			}
+			else if (!Event.bossRennaissance && blockedif.equals("bossRennaissance")) {
 				return true;
 			}
 		} else {
