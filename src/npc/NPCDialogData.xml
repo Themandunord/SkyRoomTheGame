@@ -256,7 +256,8 @@ pas très bien... S'il te plait, aide-moi !</dialog>
     <ID>315</ID>
     <dialog>Tu m'as dit que les autres étaient au RU ? C'est trop risqué 
 de passer par l'extérieur dans mon état. Il existe un tunnel
-souterrain pour s'y rendre. Suis-moi.</dialog>
+souterrain pour s'y rendre. Trouve le et on pourra quitter
+l'école.</dialog>
   </NPC>
   <NPC>
     <ID>316</ID>
@@ -452,25 +453,40 @@ serrure de la porte !</dialog>
   </NPC>
 <NPC>
   <ID>1000</ID>
-    <dialog>Rémy : Féliciation !</dialog>
+    <dialog>Rémy : Félicitations pour avoir réussi les nombreuses
+épreuves du jeu ! Moi je vais me coucher...</dialog>
   </NPC>
   <NPC>
   <ID>1001</ID>
-    <dialog>Alex :
-Voilà, c'est la fin ! Allons, ne pleure pas, on aura passé
-un bon moment :)</dialog>
+    <dialog>Alex : Voilà, c'est la fin ! Allons, ne pleure pas,
+on aura passé un bon moment :)
+Et réveille-toi : le cours est terminé...</dialog>
   </NPC>
   <NPC>
   <ID>1002</ID>
-    <dialog>Loic : Féliciation !</dialog>
+    <dialog>Loic : T'as vu la porte Wow... Y avait aussi le vaisseau, 
+les zombies et.. Enfin bref c'était une belle aventure 
+tu trouves pas ? En tout cas bien joué ;)</dialog>
   </NPC>
   <NPC>
   <ID>1003</ID>
-    <dialog>Amael : Féliciation !</dialog>
+    <dialog>Amael : T'as fini le jeu en time minutes ? C'est pas mal,
+mais essaie de battre le "temps développeur" : 13 min 32  </dialog>
   </NPC>
   <NPC>
   <ID>1004</ID>
-    <dialog>Stan : Féliciation !</dialog>
+    <dialog>Stan : Franchement bien joué !
+Pour une personne qui a autant galéré, arriver jusqu'ici tient
+du miracle ! D'ailleurs, je suis pas convaincu par ta 
+performance, je devrais te faire recommencer du début !
+	</dialog>
+  </NPC>
+  <NPC>
+  <ID>1005</ID>
+    <dialog>Bon tu as de la chance, j'ai envie de dormir donc ça
+servirait à rien de te refaire faire tout. Sur ce,
+à la prochaine !
+	</dialog>
   </NPC>
   
   </NPCData>

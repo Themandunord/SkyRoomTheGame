@@ -127,12 +127,12 @@ public class SaveData {
 		String myEncryptionPassword = "key";
 		BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
 		textEncryptor.setPassword(myEncryptionPassword);
-		this.xHero = /* textEncryptor.encrypt( */String.valueOf(Player.getX())/* ) */;
-		this.yHero = /* textEncryptor.encrypt( */String.valueOf(Player.getY())/* ) */;
-		this.IDx = /* textEncryptor.encrypt( */String.valueOf(Map.getIDx())/* ) */;
-		this.IDy = /* textEncryptor.encrypt( */String.valueOf(Map.getIDy())/* ) */;
-		this.nrbHeart = /* textEncryptor.encrypt( */String.valueOf(Hud
-				.getNbrHeart())/* ) */;
+		this.xHero = textEncryptor.encrypt( String.valueOf(Player.getX()) ) ;
+		this.yHero = textEncryptor.encrypt(String.valueOf(Player.getY()));
+		this.IDx = textEncryptor.encrypt( String.valueOf(Map.getIDx()) ) ;
+		this.IDy =  textEncryptor.encrypt( String.valueOf(Map.getIDy()) ) ;
+		this.nrbHeart =  textEncryptor.encrypt( String.valueOf(Hud
+				.getNbrHeart()) ) ;
 		this.volume = Event.volume;
 		this.stan = Event.stan;
 		this.loic = Event.loic;

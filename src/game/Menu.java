@@ -131,10 +131,6 @@ public class Menu extends BasicGameState {
 		pseudoImage = new MouseOverArea(gc, new Image("res/menu/pseudo.png"), 230, 215);
 		pseudoImage.setNormalColor(new Color(0.8f, 0.8f, 0.8f, 1f)); 					// état normal
 		pseudoImage.setMouseOverColor(new Color(1f, 1f, 1f, 1f));
-		play.setMouseDownSound(son);
-		exit.setMouseDownSound(son);
-		load.setMouseDownSound(son);
-		option.setMouseDownSound(son);
 		
 		gc.setMouseCursor("res/all/cursor.png", 0, 0); // Modifie le curseur de la souris
 		

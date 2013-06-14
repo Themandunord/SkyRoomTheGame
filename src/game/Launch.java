@@ -93,7 +93,7 @@ public class Launch extends StateBasedGame{
 	 * Constructeur principale qui définie le nom de la fénêtre
 	 */
 	public Launch(){
-		super("Beta-SkyRoom");
+		super("SkyRoom");
 	}
 	
 	/**

@@ -204,6 +204,7 @@ public class NPC {
 				String name = Menu.getPseudo();
 				dialog = npc.getDialog();
 				dialog = dialog.replaceAll("name", name);
+				dialog = dialog.replaceAll("time",	String.valueOf(Event.time));
 				dialbox.draw(195,470);
 				Game.uFont.drawString(210,475,""+dialog);
 				
@@ -219,8 +220,10 @@ public class NPC {
 			if(Player.getRect().intersects(this.rec)){
 				npc.NPCDialoge(ID);   // Permet de récupérer son dialoque dans le xml
 				dialog = npc.getDialog();
-				if(dialog!=null)
+				if(dialog!=null){
 					dialog = dialog.replaceAll("name",pseudo);
+					dialog = dialog.replaceAll("time",	String.valueOf(Event.time));
+				}
 				dialbox.draw(200,475);
 				talk = true;
 				Game.uFont.drawString(210,479,""+dialog); // Affiche le dialogue à l'écran

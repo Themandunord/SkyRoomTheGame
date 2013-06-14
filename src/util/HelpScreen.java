@@ -35,7 +35,7 @@ public class HelpScreen {
 			if(InputControl.inputPressed(Input.KEY_ENTER)){
 				isVisible = false;
 				Event.helpScreen = false;
-				isShow = false;
+				isShow = true;
 			}
 			if(isVisible){
 				img.draw(150, 175);

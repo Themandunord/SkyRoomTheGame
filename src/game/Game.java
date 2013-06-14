@@ -173,6 +173,12 @@ public class Game extends BasicGameState {
 				save.serializer();
 				isSave = true;
 			}
+			else if(Map.isMap(9, 6)){
+				Event.save = false;
+				save.serializer();
+				isSave = true;
+			}
+			
 			else if(Map.isMap(11, 1)){
 				Event.save = false;
 				save.serializer();

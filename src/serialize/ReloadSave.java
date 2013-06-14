@@ -44,7 +44,7 @@ public class ReloadSave {
 	public void reload(GameContainer gc, StateBasedGame sbg){
 		input = gc.getInput();
 		
-		if(InputControl.inputPressed(Input.KEY_R)){
+		/*if(InputControl.inputPressed(Input.KEY_R)){
 			Event.makeReload = true;	
 			//reloadGame();
 		}
@@ -69,19 +69,68 @@ public class ReloadSave {
 		}
 		if(InputControl.inputPressed(Input.KEY_I)){
 			Event.fin = true;
-		}
+		}*/
 		if(InputControl.inputPressed(Input.KEY_ESCAPE) || input.isControlPressed(11)){
 			PauseState.PAUSE = !PauseState.PAUSE;
 		}
-		if(InputControl.inputPressed(Input.KEY_Y)){
+		/*if(InputControl.inputPressed(Input.KEY_Y)){
 			sbg.enterState(31);
 			sbg.enterState(31, new EmptyTransition (),new BlobbyTransition(Color.black));
 		}
-		
-		if(isCheat){
+		*/
+		/*if(isCheat){
 			
 			cheat.update();
+		}*/
+		
+		if(InputControl.inputPressed(Input.KEY_NUMPAD1)){
+			Event.doveOnPlayer = true;
+			Event.isDove = true;
+			Map.setIDx(3);
+			Map.setIDy(3);
+			Player.setX(420);
+			Player.setY(530);
 		}
+		if(InputControl.inputPressed(Input.KEY_NUMPAD2)){
+			Map.setIDx(4);
+			Map.setIDy(9);
+			Player.setX(384);
+			Player.setY(544);
+			Event.SWORD = true;
+		}
+		if(InputControl.inputPressed(Input.KEY_NUMPAD3)){
+			Map.setIDx(9);
+			Map.setIDy(6);
+			Event.wood = true;
+		}
+		if(InputControl.inputPressed(Input.KEY_NUMPAD4)){
+			Map.setIDx(6);
+			Map.setIDy(0);
+			Player.setX(420);
+			Player.setY(350);
+		}
+		if(InputControl.inputPressed(Input.KEY_NUMPAD5)){
+			Map.setIDx(8);
+			Map.setIDy(8);
+			Player.setX(420);
+			Player.setY(544);
+			Event.doveOnPlayer = true;
+			Event.isDove = true;
+			Event.wood = false;
+			Event.costume = false;
+			Event.costume_partiel = false;
+			Event.bo = true;
+			Event.SWORD = false;
+			Event.blasterStorm = false;
+		}
+		if(InputControl.inputPressed(Input.KEY_NUMPAD6)){
+			Map.setIDx(10);
+			Map.setIDy(11);
+			Player.setX(384);
+			Player.setY(450);
+			
+		}
+		
 				
 	}
 	
@@ -96,15 +145,15 @@ public class ReloadSave {
 		deserializer.DeSerializere();
 
 		if(!Event.haveNoSave){
-			Player.setX(Float.parseFloat(/*textEncryptor.decrypt(*/Deserializer.getSaveData().getxHero()))/*)*/;
-			Player.setY(Float.parseFloat(/*textEncryptor.decrypt(*/Deserializer.getSaveData().getyHero()))/*)*/;
+			Player.setX(Float.parseFloat(textEncryptor.decrypt(Deserializer.getSaveData().getxHero())));
+			Player.setY(Float.parseFloat(textEncryptor.decrypt(Deserializer.getSaveData().getyHero())));
 	        Map.setInitNPC(false);
 	        Map.setInit(false);
-			Map.setIDx(Integer.valueOf(/*textEncryptor.decrypt(*/Deserializer.getSaveData().getIDx()))/*)*/;
-			Map.setIDy(Integer.valueOf(/*textEncryptor.decrypt(*/Deserializer.getSaveData().getIDy()))/*)*/;
+			Map.setIDx(Integer.valueOf(textEncryptor.decrypt(Deserializer.getSaveData().getIDx())));
+			Map.setIDy(Integer.valueOf(textEncryptor.decrypt(Deserializer.getSaveData().getIDy())));
 	        Map.setInitNPC(false);
 	        Map.setInit(false);
-			Hud.setNbrHeart(Integer.valueOf(/*textEncryptor.decrypt(*/Deserializer.getSaveData().getNbrHeart()))/*)*/;
+			Hud.setNbrHeart(Integer.valueOf(textEncryptor.decrypt(Deserializer.getSaveData().getNbrHeart())));
 			GameSound.setCompteur(0);
 			GameSound.music = Deserializer.getSaveData().getMusic();
 			GameSound.isPlaying(GameSound.getTree().get(GameSound.music));

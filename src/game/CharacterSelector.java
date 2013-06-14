@@ -132,8 +132,8 @@ public class CharacterSelector extends BasicGameState{
 			if (Mouse.isButtonDown(0)) {
 				Player.setSex("boy");
 				if(Menu.pseudo.equals("Laura")) Menu.pseudo = "Kevin";
-				sbg.enterState(1);
-				sbg.enterState(1, new FadeOutTransition (),new FadeInTransition(Color.black)); 
+				sbg.enterState(10);
+				sbg.enterState(10, new FadeOutTransition (),new FadeInTransition(Color.black)); 
 			}
 		}
 		if ((posX > cGirl.getX() && posX < (cGirl.getX()+cGirl.getWidth()) && (posY < cGirl.getY()+cGirl.getHeight() && posY > cGirl.getY()))) {

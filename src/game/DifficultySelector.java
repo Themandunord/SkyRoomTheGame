@@ -36,9 +36,9 @@ public class DifficultySelector extends BasicGameState {
 		hard = new MouseOverArea(gc, new Image("res/dificulty/hard.png"),300, 300);
 		hard.setNormalColor(new Color(0.6f, 0.6f, 0.6f, 1f)); 					
 		hard.setMouseOverColor(new Color(1f, 1f, 1f, 1f)); 
-		god = new MouseOverArea(gc, new Image("res/dificulty/god.png"), 300, 380);
+		/*god = new MouseOverArea(gc, new Image("res/dificulty/god.png"), 300, 380);
 		god.setNormalColor(new Color(0.6f, 0.6f, 0.6f, 1f)); 					
-		god.setMouseOverColor(new Color(1f, 1f, 1f, 1f)); 
+		god.setMouseOverColor(new Color(1f, 1f, 1f, 1f)); */
 		back = new MouseOverArea(gc, new Image("res/option/retour.png"), 580, 510);
 		back.setNormalColor(new Color(0.6f, 0.6f, 0.6f, 1f)); 					
 		back.setMouseOverColor(new Color(1f, 1f, 1f, 1f)); 
@@ -52,7 +52,7 @@ public class DifficultySelector extends BasicGameState {
 		easy.render(gc, g);
 		medium.render(gc, g);
 		hard.render(gc, g);
-		god.render(gc, g);
+		//god.render(gc, g);
 		back.render(gc, g);
 	}
 
@@ -70,8 +70,8 @@ public class DifficultySelector extends BasicGameState {
 				MEDIUM = false;
 				HARD=false;
 				GOD=false;
-				sbg.enterState(2);
-				sbg.enterState(2, new FadeOutTransition (),new FadeInTransition(Color.black));
+				sbg.enterState(1);
+				sbg.enterState(1, new FadeOutTransition (),new FadeInTransition(Color.black));
 			}
 		}
 		if(pos(medium, posX, posY)){
@@ -80,8 +80,8 @@ public class DifficultySelector extends BasicGameState {
 				EASY=false;
 				HARD=false;
 				GOD=false;
-				sbg.enterState(2);
-				sbg.enterState(2, new FadeOutTransition (),new FadeInTransition(Color.black));
+				sbg.enterState(1);
+				sbg.enterState(1, new FadeOutTransition (),new FadeInTransition(Color.black));
 			}
 		}
 		if(pos(hard, posX, posY)){
@@ -90,21 +90,21 @@ public class DifficultySelector extends BasicGameState {
 				EASY=false;
 				MEDIUM = false;
 				GOD=false;
-				sbg.enterState(2);
-				sbg.enterState(2, new FadeOutTransition (),new FadeInTransition(Color.black));
+				sbg.enterState(1);
+				sbg.enterState(1, new FadeOutTransition (),new FadeInTransition(Color.black));
 			}
 		}
-		if(pos(god, posX, posY)){
+		/*if(pos(god, posX, posY)){
 			if (Mouse.isButtonDown(0)) {
 				GOD = true;
 				EASY=false;
 				MEDIUM = false;
 				HARD=false;
-				sbg.enterState(2);
-				sbg.enterState(2, new FadeOutTransition (),new FadeInTransition(Color.black));
+				sbg.enterState(1);
+				sbg.enterState(1, new FadeOutTransition (),new FadeInTransition(Color.black));
 			}
 			
-		}
+		}*/
 		if ((posX >back.getX() && posX < (back.getX()+back.getWidth())) && (posY < (back.getY()+back.getHeight()) && posY > back.getY())) {
 			if (Mouse.isButtonDown(0)) {
 					sbg.enterState(6);

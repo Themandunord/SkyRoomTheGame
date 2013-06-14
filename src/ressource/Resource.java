@@ -492,9 +492,9 @@ public class Resource {
 		if(!Event.cine_futur)
 			cine_futur.render(2, 8, 7, 40,5);
 		if(!Event.cine_chinois)
-			cine_chinois.render(11, 4, 5, 70,6);
+			cine_chinois.render(11, 4, 5, 80,6);
 		if(!Event.cine_renaissance)
-			cine_renaissance.render(9, 6, 4, 70,7);
+			cine_renaissance.render(9, 6, 4, 80,7);
 		if(Event.goSkyRoom && !Event.cine_skyroom)
 			cine_skyroom.render(10, 11, 8, 60,8);
 		if(Event.spartaland_cine && !Event.cine_spartaland){

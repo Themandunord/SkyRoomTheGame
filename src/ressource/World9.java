@@ -64,12 +64,11 @@ public class World9 implements WorldRessource
 			npc11.init("vide", 813, 10, 10, 0, "down");
 			npc12.init("vide", 814, 10, 10, 0, "down");
 			npc13.init("vide", 815, 10, 10, 0, "down");			
-			
 			npc1.init("remy", 1000, 10, 11, 0, "down");
 			npc2.init("alex", 1001, 10, 11, 0, "down");
 			npc3.init("loic", 1002, 10, 11, 0, "down");
 			npc4.init("amael", 1003, 10, 11, 0, "down");
-			npc5.init("stan", 1004, 10, 11, 0, "down");
+			npc5.init("stan", 1004, 10, 11, 1, "down");
 		}
 	}
 
