@@ -14,4 +14,4 @@ Membres du projet :
   - MERTEN Stanislas
 
 
-Plus d'infos : http://skyroom-game.tk
+Plus d'infos : http://remylespagnol.free.fr/skyroom/
